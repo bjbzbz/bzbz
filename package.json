@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "file": "demo",
+  "version": "0.1.0",
+  "description": "demo",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "4.12.3"
+  },
+  "dependencies": {}
+}
