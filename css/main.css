@@ -328,7 +328,8 @@ img {
     position: relative;
 }
 .is-news .news-tabs .news-tab {
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: bold;
     width: 126px;
     text-align: center;
     display: inline-block;
@@ -379,7 +380,7 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 13px;
 }
 .is-news .message .message-body {
     width: 196px;
