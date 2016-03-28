@@ -6,10 +6,10 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta charset="utf-8" />
-    <title> 京东电商云 </title>
-    <link rel="icon" href="http://storage.jd.com/b2b.jcloud.jd.com/4b1bad5b-4ae1-4276-b4cb-3a6c4fb9e453.png" mce_href="http://storage.jd.com/b2b.jcloud.jd.com/4b1bad5b-4ae1-4276-b4cb-3a6c4fb9e453.png" type="image/x-icon">
-    <meta name="description" content=" 京东电商云综合性批发平台友谊 ">
-    <meta name="Keywords" content=" 京东电商云 友谊 ">
+    <title> 友谊集团 </title>
+    <link rel="icon" href="${COPYRIGHT.faviconIcoPic}" mce_href="${COPYRIGHT.faviconIcoPic}" type="image/x-icon">
+    <meta name="description" content=" 友谊集团 ">
+    <meta name="Keywords" content=" 友谊集团 ">
     <link rel="stylesheet" href="css/common.css?v=20141021" />
     <link rel="stylesheet" href="css/main.css?v=20141021" />
     <script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20140820"></script>
@@ -31,23 +31,47 @@
     <!-- head begin -->
     <!-- header begin -->
     <div class="side-bar">
+        <div class="side-item side-personal">
+            <a href="http://www.yrj.com/personal" target="_blank">
+                <i class="side-icon"></i>
+            </a>
+        </div>
         <div class="side-item side-cart" id="side_cart_link">
-            <a href="http://b2b.jcloud.com/cart" target="_blank" clstag="pageclick|keycount|201601052|56">
+            <a href="http://www.yrj.com/cart" target="_blank" clstag="pageclick|keycount|201601052|56">
                 <i class="side-icon" id="cartEnd"></i>
                 <div class="side-text">购物车</div>
                 <div class="num"> 0 </div>
             </a>
         </div>
+        <div class="side-item side-visited">
+            <a href="http://buyer.yrj.com/index#url=/visited/fav-item" target="_blank" clstag="pageclick|keycount|201601052|58">
+                <i class="side-icon"></i>
+            </a>
+        </div>
         <div class="side-item side-favor">
-            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank" clstag="pageclick|keycount|201601052|58">
-                <div class="side-line">
-                    <i class="side-icon"></i>
-                    <div class="side-text">收藏夹</div>
-                </div>
+            <a href="http://buyer.yrj.com/index#url=/favor/fav-item" target="_blank" clstag="pageclick|keycount|201601052|58">
+                <i class="side-icon"></i>
             </a>
         </div>
         <div class="side-item side-kf">
             <a href='http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes' target="_blank" clstag="pageclick|keycount|201601052|57">
+                <i class="side-icon"></i>
+                <div class="side-text">联系客服</div>
+            </a>
+        </div>
+        <div class="side-item side-mobile">
+            <a href='#' target="_blank" clstag="pageclick|keycount|201601052|57">
+                <i class="side-icon"></i>
+            </a>
+        </div>
+        <div class="side-item side-fk">
+            <a href='#' target="_blank" clstag="pageclick|keycount|201601052|57">
+                <i class="side-icon"></i>
+                <div class="side-text">反馈</div>
+            </a>
+        </div>
+        <div class="side-item side-top">
+            <a href='#' target="_blank" clstag="pageclick|keycount|201601052|57">
                 <i class="side-icon"></i>
             </a>
         </div>
@@ -57,26 +81,26 @@
             <div class="bd">
                 <i></i>
                 <p class="tt">成功加入购物车！</p>
-                <p>您可以<a href="http://b2b.jcloud.com/cart">去购物车结算</a></p>
+                <p>您可以<a href="http://www.yrj.com/cart">去购物车结算</a></p>
             </div>
         </div>
     </div>
     <header>
         <script type="text/javascript">
         function getContextPath() {
-            return 'http://b2b.jcloud.com';
+            return 'http://www.yrj.com';
         }
         //店铺域名
-        var _shopDomain = "shop-b2b.jcloud.com";
+        var _shopDomain = "shop.yrj.com";
         </script>
         <!-- header nav begin -->
         <div class="site-nav">
             <div class="area">
+                <div class="welcome-word">您好！欢迎光临包整包装网！</div>
                 <div id="div_login_info" class="login-info">
-                    Hi，<a href="http://buyer-b2b.jcloud.com" title="565153851@qq.com" target="_blank">
-                                            565153851@qq.com
-                            </a> ，欢迎来到电商云演示！
-                    <a href="http://pass-b2b.jcloud.com/logout">[退出]</a>
+                    <a href="http://passport.yrj.com/login" class="login link-word hover-color">请登录</a>
+                    <a href="http://passport.yrj.com/register" class="regis link-word hover-color">免费注册</a>
+                    <a href="index2.html" class="homepage link-word hover-color">商城首页</a>
                 </div>
                 <ul class="quick-menu">
                     <li class="area-txt"><i class="area-icon"></i><span id="selected_province"></span></li>
@@ -86,26 +110,26 @@
                             <div id="area_content" class="s-area-choose"></div>
                         </div>
                     </li>
-                    <li class="cut">|</li>
-                    <li><a href="http://b2b.jcloud.com" target="_blank">商城首页</a></li>
-                    <li class="cut">|</li>
-                    <li><a href="http://b2b.jcloud.com/category" target="_blank">商品分类</a></li>
-                    <li class="cut">|</li>
+                    <li><a href="买家中心.html" class="hover-color">我的包整包装</a></li>
+                    <!-- <li class="cut">|</li> -->
+                    <!-- <li><a href="http://www.yrj.com/category" target="_blank">商品分类</a></li> -->
+                    <!-- <li class="cut">|</li> -->
                     <li class="favorite menu">
-                        <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank"><i class="scj-icon"></i>收藏夹<b></b></a>
+                        <a href="http://buyer.yrj.com/index#url=/favor/fav-item" class="hover-color" target="_blank" ><i class="scj-icon"></i>收藏夹<b></b></a>
                         <div class="sub-bd ">
-                            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank">收藏的商品</a>
-                            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/myfavshop?type=shop" target="_blank">收藏的店铺</a>
+                            <a href="http://buyer.yrj.com/index#url=/favor/fav-item" class="hover-color" target="_blank">收藏的商品</a>
+                            <a href="http://buyer.yrj.com/index#url=/favor/myfavshop?type=shop" class="hover-color" target="_blank">收藏的店铺</a>
                         </div>
                     </li>
-                    <li class="cut">|</li>
-                    <li class="cart menu" id="mini_cart_li">
-                        <a href="http://b2b.jcloud.com/cart" target="_blank" id="mini_cart_link" style="line-height: 28px;display:inline-block"><i class="cart-icon"></i>进货车<span class="cart-num">0</span><b></b></a>
-                    </li>
+                    <!-- <li class="cut">|</li> -->
+                    <!-- <li class="cart menu" id="mini_cart_li">
+                        <a href="http://www.yrj.com/cart" target="_blank" id="mini_cart_link" style="line-height: 28px;display:inline-block"><i class="cart-icon"></i>进货车<span class="cart-num">0</span><b></b></a>
+                    </li> -->
                     <!-- S 2015-12-15 移动商城 -->
-                    <li class="cut">|</li>
-                    <li class="qrcode menu">
-                        <a href="http://b2b.jcloud.com/mobileMall/download" target="_blank"><i class="qr-icon"></i>移动商城<b></b></a>
+                    <!-- <li class="cut">|</li> -->
+                    <li><a href="消息中心.html" class="hover-color">消息中心</a></li>
+                    <!-- <li class="qrcode menu">
+                        <a href="http://www.yrj.com/mobileMall/download" target="_blank"><i class="qr-icon"></i>移动商城<b></b></a>
                         <div class="sub-bd ">
                             <div class="qr-box brt-dot">
                                 <div class="text">微信扫一扫
@@ -118,7 +142,8 @@
                                 <div class="qr-img"><img src="images/qr/app-select.png" width="136" height="136"></div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
+                    <li>客服热线：0591-88888888</li>
                     <!-- E 2015-12-15 移动商城 -->
                 </ul>
             </div>
@@ -147,18 +172,19 @@
         <!-- header nav end -->
         <div class="w-header">
             <div class="logo">
-                <h1><a href="http://b2b.jcloud.com"><img title="电商云演示" src="http://storage.jd.com/b2b.jcloud.jd.com/b78368e7-cac1-4c26-b86a-96f2c0fd3e11.png" width="155" height="45"></a></h1>
+                <h1><a href="http://www.yrj.com"><img title="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/150c7e4a-d886-4b60-b237-2944452bf859.png" width="155" height="45"></a></h1>
             </div>
             <div class="search">
                 <!-- S 搜索分类切换 -->
                 <div class="search-tab">
                     <ul>
-                        <li class="first on" url="http://b2b.jcloud.com/search">商品</li>
-                        <li url="http://b2b.jcloud.com/purchase/search">求购</li>
+                        <li class="first on hover-color" url="http://www.yrj.com/search">产品</li>
+                        <li class="hover-color" url="http://www.yrj.com/seller/search">供应商</li>
+                        <li class="hover-color" url="http://www.yrj.com/purchase/search">求购</li>
                     </ul>
                 </div>
                 <div class="bd">
-                    <form method="post" id="item_head_form" name="itemPagerForm" action="http://b2b.jcloud.com/search">
+                    <form method="post" id="item_head_form" name="itemPagerForm" action="http://www.yrj.com/search">
                         <input type="hidden" id="hid_head_keyword" name="keyword" value="" />
                     </form>
                     <input type="text" id="txt_keyword" class="search-ipt" placeholder="请输入商品名称" onfocus="this.placeholder=''" onblur="this.placeholder='请输入商品名称'" value="" onkeypress="searchByKeydown(event)" />
@@ -218,15 +244,25 @@
             <!-- S 采购频道入口 当前采购频道添加class on -->
             <div class="menu">
                 <ul>
-                    <li class="on"><a href="http://b2b.jcloud.com/purchase">采购频道</a></li>
+                    <li class="on tab-hover tab-on-disable"><a href="index2.html">首页</a></li>
+                    <li class="tab-hover"><a href="#ziying.html"><span class="tab-icon tab-hot">自营商城</span></a></li>
+                    <li class="tab-hover"><a href="#dingzhi.html"><span class="tab-icon tab-new">定制商品</span></a></li>
+                    <li class="tab-hover"><a href="#banchengping.html"><span class="tab-icon tab-hot">半成品商品</span></a></li>
+                    <li class="tab-hover"><a href="http://www.yrj.com/purchase">采购频道</a></li>
                 </ul>
             </div>
             <!-- E 采购频道入口 -->
-            <div class="link">
-                <div class="link-buy" clstag="pageclick|keycount|201601052|27"><a href="http://buyer-b2b.jcloud.com" target="_blank"><i></i>买家中心</a></div>
-                <span></span>
-                <div class="link-sale" clstag="pageclick|keycount|201601052|28"><a href="http://shop-b2b.jcloud.com" target="_blank"><i></i>卖家中心</a></div>
+
+            <!-- 删除原本的买家中心和卖家中心，新增进货车 -->
+            <div class="shopping">
+              <a href="shopping.html" class="shopping-link"></a>
             </div>
+            <!-- 新增进货车 -->
+            <!-- <div class="link">
+                <div class="link-buy" clstag="pageclick|keycount|201601052|27"><a href="http://buyer.yrj.com" target="_blank"><i></i>买家中心</a></div>
+                <span></span>
+                <div class="link-sale" clstag="pageclick|keycount|201601052|28"><a href="http://shop.yrj.com" target="_blank"><i></i>卖家中心</a></div>
+            </div> -->
         </div>
     </div>
     <script type="text/javascript">
@@ -254,99 +290,159 @@
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
                         </ul>
                     </div>
                     <div class="bd">
                         <ul>
                             <li>
-                                <a href="/count/adclick?url=http://b2b.jcloud.com/item/1001490" clstag="pageclick|keycount|201601052|37" target="_blank"><img alt="专题页面测试" title="专题页面测试" src="http://storage.jd.com/b2b.jcloud.jd.com/1cf6d4ce-5ea0-4a59-b7b4-cec570a6a58d.jpg" width="740" height="470" /></a>
+                                <a href="/count/adclick?url=http://www.yrj.com/" clstag="pageclick|keycount|201601052|37" target="_blank"><img alt="集团推广" title="集团推广" src="http://storage.jd.com/b2b.jcloud.jd.com/68278aaa-6773-422a-b53c-dbf6e59e24c4.jpg" width="740" height="470" /></a>
                             </li>
                             <li>
-                                <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" clstag="pageclick|keycount|201601052|38" target="_blank"><img alt="限时抢购" title="限时抢购" src="http://storage.jd.com/b2b.jcloud.jd.com/c1a11a34-0a77-41df-8540-3b7e18f8ded8.jpg" width="740" height="470" /></a>
+                                <a href="/count/adclick?url=http://www.yrj.com/" clstag="pageclick|keycount|201601052|38" target="_blank"><img alt="集团理念" title="集团理念" src="http://storage.jd.com/b2b.jcloud.jd.com/14522a22-1ecf-4fb8-be5d-d1e1a676e352.jpg" width="740" height="470" /></a>
                             </li>
                             <li>
-                                <a href="/count/adclick?url=123" clstag="pageclick|keycount|201601052|39" target="_blank"><img alt="3" title="3" src="http://storage.jd.com/b2b.jcloud.jd.com/3e122833-60ce-45d1-a84e-f3f6ada88e08.jpg" width="740" height="470" /></a>
-                            </li>
-                            <li>
-                                <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" clstag="pageclick|keycount|201601052|40" target="_blank"><img alt="轮播图" title="轮播图" src="http://storage.jd.com/b2b.jcloud.jd.com/af6be81a-b703-4eff-ac4a-d3f612fce5fb.jpg" width="740" height="470" /></a>
-                            </li>
-                            <li>
-                                <a href="/count/adclick?url=" clstag="pageclick|keycount|201601052|41" target="_blank"><img alt="逗你玩" title="逗你玩" src="http://storage.jd.com/b2b.jcloud.jd.com/67c09ffc-a376-4921-8bed-217b63fc1f31.jpg" width="740" height="470" /></a>
+                                <a href="/count/adclick?url=" clstag="pageclick|keycount|201601052|39" target="_blank"><img alt="b2b烧钱" title="b2b烧钱" src="http://storage.jd.com/b2b.jcloud.jd.com/083ce1cf-76dc-4a03-b609-a5c841b089d0.jpg" width="740" height="470" /></a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="info-side">
-                <div class="is-user" clstag="pageclick|keycount|201601052|29">
-                    <!-- 已登录 -->
-                    <div class="login">
-                        <div class="top">
-                            <div class="avatar">
-                                <a href="javascript:void(0)"><img src="images/temp/user-pic.png" width="60px" height="60px"></a>
-                            </div>
-                            <div class="txt">
-                                <p class="name">Hi，<a href="http://buyer-b2b.jcloud.com" target="_blank" title="565153851@qq.com">
-                                              565153...
-                                          </a></p>
-                                <p class="xy">
-                                    <!--<span>信誉</span><img src="">-->
-                                    <a href="http://pass-b2b.jcloud.com/logout" class="r-btn">[退出]</a>
-                                </p>
-                            </div>
-                            <div class="bg-avatar"></div>
-                        </div>
-                        <div class="middle">
-                            <div class="link1"><a href="http://b2b.jcloud.com/authenticate/tobuyer"><i></i>认证买家</a></div>
-                            <div class="link2"><a href="http://b2b.jcloud.com/authenticate/toseller"><i></i>认证卖家</a></div>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li>
-                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/10?orderType=10&pageNum=1&pageSize=5" target="_blank">
-                                        <span>1</span>
-                                        <p>待付款</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/30?orderType=30&pageNum=1&pageSize=5" target="_blank">
-                                        <span>0</span>
-                                        <p>待确认收货</p>
-                                    </a>
-                                </li>
-                                <li class="last">
-                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/991?orderType=991&pageNum=1&pageSize=5" target="_blank">
-                                        <span>3</span>
-                                        <p>待评价</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ft">
-                        <div class="link1"><a href="http://b2b.jcloud.com/help?id=107&type=1" target="_blank"><i></i>&#36141;&#29289;&#24341;&#23548;</a></div>
-                        <div class="link2"><a href="http://b2b.jcloud.com/help?id=109&type=1" target="_blank"><i></i>&#24179;&#21488;&#35268;&#21017;</a></div>
-                    </div>
-                </div>
-                <div class="is-news">
+            <div class="info-side">  
+                <!-- <div class="is-news">
                     <dl>
                         <dt>公告</dt>
                         <dd class="first" clstag="pageclick|keycount|201601052|31">
-                            <a href="/notice/noticeinfo/1000192" target="_blank">&#20844;&#21578;&#22270;&#29255;&#27979;&#35797;</a>
+                            <a href="/notice/noticeinfo/1000159" target="_blank">&#20013;&#22269;&#20809;&#23398;&#33180;&#20445;&#25252;&#33180;&#20135;&#19994;&#30427;&#20250;</a>
                         </dd>
                         <dd clstag="pageclick|keycount|201601052|33">
-                            <a href="/notice/noticeinfo/1000182" target="_blank">&#27426;&#36814;&#20809;&#20020;&#20140;&#33678;&#32593;&#65281;</a>
+                            <a href="/notice/noticeinfo/1000158" target="_blank">&#24120;&#29992;&#26222;&#36890;&#33014;&#24102;&#30340;&#20998;&#31867;&#21644;&#22522;&#26412;&#36136;&#37327;&#35201;...</a>
                         </dd>
                         <dd clstag="pageclick|keycount|201601052|36">
-                            <a href="/notice/noticeinfo/1000180" target="_blank">&#27979;&#35797;&#21151;&#33021;</a>
+                            <a href="/notice/noticeinfo/1000157" target="_blank">&#27700;&#24615;&#33014;&#31896;&#26448;&#26009;&#24212;&#29992;&#20110;&#36719;&#21253;&#35013;&#19994;&#20248;&#21183;...</a>
                         </dd>
                         <dd>
-                            <a href="/notice/noticeinfo/1000148" target="_blank">&#12304;&#29305;&#24800;&#12305;&#24180;&#36135;&#24102;&#22238;&#23478;&#65281;12GB&#19978;...</a>
+                            <a href="/notice/noticeinfo/1000156" target="_blank">&#23553;&#31665;&#29992;&#29275;&#30382;&#32440;&#33014;&#24102;&#30340;&#31181;&#31867;&#21450;&#27010;&#36848;</a>
+                        </dd>
+                        <dd>
+                            <a href="/notice/noticeinfo/1000155" target="_blank">2016 &#31532;12&#23626;&#19978;&#28023;&#22269;&#38469;&#33014;&#31896;...</a>
+                        </dd>
+                        <dd>
+                            <a href="/notice/noticeinfo/1000154" target="_blank">&#20013;&#22269;&#20809;&#23398;&#33180;&#20445;&#25252;&#33180;&#20135;&#19994;&#30427;&#20250;</a>
                         </dd>
                     </dl>
-                    <a href="http://b2b.jcloud.com/notice/" class="more" clstag="pageclick|keycount|201601052|30" target="_blank">更多></a>
+                    <a href="http://www.yrj.com/notice/" class="more" clstag="pageclick|keycount|201601052|30" target="_blank">更多></a>
+                </div> -->
+                <div class="is-news">
+                  <ul class="news-tabs">
+                    <li class="news-tab zixun on" data-klass="zixun">资讯</li>
+                    <li class="news-tab gonggao" data-klass="gonggao">公告</li>
+                  </ul>
+                  <ul class="news-panels">
+                    <li class="news-panel zixun on">
+                      <ul class="message">
+                        <li>
+                          <a href="" class="message-word message-body">包装市场需求</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                      </ul>
+                      <div class="message-more">
+                        <a href="#zixun.html">查看更多>></a>
+                      </div>
+                    </li>
+                    <li class="news-panel gonggao">
+                      <ul class="message">
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                        <li>
+                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
+                          <span class="message-word message-time">03-24</span>
+                        </li>
+                      </ul>
+                      <div class="message-more">
+                        <a href="#zixun.html">查看更多>></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <script>
+                  $('.news-tabs').on('mouseover', '.news-tab', function(e) {
+                    var klass = $(this).attr('data-klass');
+                    $('.news-tabs').find('.on').removeClass('on');
+                    $('.news-panels').find('.on').removeClass('on');
+                    $(this).addClass('on');
+                    $('.news-panels').find('.' + klass).addClass('on');
+                  });
+                </script>
+                <div class="is-user" clstag="pageclick|keycount|201601052|29">
+                    <!-- 未登录 -->
+                    <div class="no-login">
+                        <div class="top">
+                            <i></i>
+                            <p class="fw-b">您好！欢迎来到包整包装网！</p>
+                            <p class="clr-999">您还未登录哦~</p>
+                        </div>
+                        <div class="bottom">
+                            <a href="http://passport.yrj.com/login" class="l-btn">登录</a>
+                            <a href="http://passport.yrj.com/register" class="l-btn ml7">注册</a>
+                        </div>
+                    </div>
+                    <!-- <div class="ft">
+                        <div class="link1"><a href="http://www.yrj.com/help?id=112&type=1" target="_blank"><i></i>&#36141;&#29289;&#24341;&#23548;</a></div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -360,58 +456,58 @@
                     <li>
                         <div class="item item1" clstag="pageclick|keycount|201601052|43">
                             <div class="aside">
-                                <a href="http://b2b.jcloud.com/itemlist/1000585" target="_blank">
+                                <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                 </a>
                             </div>
-                            <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" target="_blank"><img alt="京东电商云" src="http://storage.jd.com/b2b.jcloud.jd.com/efa212b1-f95e-4d76-9e10-799948e1d592.jpg" width="380" height="450"></a>
+                            <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/0cd1e288-87e4-4e20-bd9e-e953ffc11713.jpg" width="380" height="450"></a>
                         </div>
                     </li>
                     <li class="ml10">
                         <div class="cl">
                             <div class="item item2" clstag="pageclick|keycount|201601052|44">
                                 <div class="aside">
-                                    <a href="123" target="_blank">
+                                    <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                     </a>
                                 </div>
-                                <a href="/count/adclick?url=123" target="_blank"><img alt="2" src="http://storage.jd.com/b2b.jcloud.jd.com/752bc5ec-8e8c-46ca-be5f-cb1ed1117716.jpg" width="300" height="210"></a>
+                                <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/45503765-3661-4a86-940b-881f8030e1ed.jpg" width="300" height="210"></a>
                             </div>
                             <div class="item item2 ml10" clstag="pageclick|keycount|201601052|45">
                                 <div class="aside">
-                                    <a href="123" target="_blank">
+                                    <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                     </a>
                                 </div>
-                                <a href="/count/adclick?url=123" target="_blank"><img alt="3" src="http://storage.jd.com/b2b.jcloud.jd.com/72795e6f-b1e7-4804-8adc-ba5190272f66.jpg" width="300" height="210"></a>
+                                <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/90d314d0-fd2d-4ce2-8f38-f8fd0dff77d6.jpg" width="300" height="210"></a>
                             </div>
                         </div>
                         <div class="item item3 mt10" clstag="pageclick|keycount|201601052|46">
                             <div class="aside">
-                                <a href="123" target="_blank">
+                                <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                 </a>
                             </div>
-                            <a href="/count/adclick?url=123" target="_blank"><img alt="4" src="http://storage.jd.com/b2b.jcloud.jd.com/c99c9f4d-affc-42b2-9c3b-c422125b8a32.jpg" width="610" height="230"></a>
+                            <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/32b90586-ed45-428d-ac07-d71ff63735bf.jpg" width="610" height="230"></a>
                         </div>
                     </li>
                     <li class="ml10">
                         <div class="item item4" clstag="pageclick|keycount|201601052|47">
                             <div class="aside">
-                                <a href="123" target="_blank">
+                                <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                 </a>
                             </div>
-                            <a href="/count/adclick?url=123" target="_blank"><img alt="5" src="http://storage.jd.com/b2b.jcloud.jd.com/42a1c609-b21b-48f7-bd44-923630928c10.jpg" width="190" height="100"></a>
+                            <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/0dc00740-d220-4e54-a584-80d8c19d25ec.jpg" width="190" height="100"></a>
                         </div>
                         <div class="item item4 mt10" clstag="pageclick|keycount|201601052|48">
                             <div class="aside">
-                                <a href="123" target="_blank">
+                                <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                 </a>
                             </div>
-                            <a href="/count/adclick?url=123" target="_blank"><img alt="6" src="http://storage.jd.com/b2b.jcloud.jd.com/ea0244fe-0104-4d03-b26c-d95d329d99de.jpg" width="190" height="100"></a>
+                            <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/e7ece7f9-7103-44c5-8ff1-5bf944da41dc.png" width="190" height="100"></a>
                         </div>
                         <div class="item item5 mt10" clstag="pageclick|keycount|201601052|49">
                             <div class="aside">
-                                <a href="123" target="_blank">
+                                <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
                                 </a>
                             </div>
-                            <a href="/count/adclick?url=123" target="_blank"><img alt="7" src="http://storage.jd.com/b2b.jcloud.jd.com/df3ef03d-90b2-4ff3-b0e0-57dca5825334.jpg" width="190" height="230"></a>
+                            <a href="/count/adclick?url=http://www.yrj.com/itemlist/1000792" target="_blank"><img alt="友谊集团" src="http://storage.jd.com/b2b.jcloud.jd.com/3f19950e-06dd-4217-85df-f8ef18c93a51.jpg" width="190" height="230"></a>
                         </div>
                     </li>
                 </ul>
@@ -422,160 +518,287 @@
             <script type="text/javascript">
             var smallTitleJson = "{";
             var atemp = "";
-            var webQQ = "2431109318";
+            var webQQ = "2545157941";
             </script>
             <!-- S 1F -->
             <div class="floor-item floor-item1" data-fid="0" clstag="pageclick|keycount|201601052|53">
                 <div class="hd">
-                    <h2><a href="javascript:void(0)"><i></i>女鞋</a></h2>
+                    <h2><a href="javascript:void(0)"><i></i>限时特惠</a></h2>
                     <div class="floor-nav">
                         <ul class="floor-nav-list">
-                            <li class="first"><a href="http://b2b.choud.com" target="_blank">年货一站式采购</a></li>
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                            <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                            <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">纤维胶带</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="bd cl">
                     <div class="f-item-l">
                         <div class="img">
-                            <a href="http://b2b.jcloud.com/itemlist/1000588" target="_blank">
-                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/02c512e7-c301-4ac8-acb9-4811809e8b97.jpg" width="229" height="333">
-                                <span class="btn">
+                            <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
+                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/5a58b177-a4f3-45bc-a97d-a9887ec52364.png" width="229" height="333">
+                           <!--      <span class="btn">
                         立即抢购>
-                    </span>
+                    </span> -->
                             </a>
                         </div>
-                        <div class="link">
+                        <!-- <div class="link">
                             <ul>
-                                <li><a href="http://b2b.cloud.com" target="_blank">核桃</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">腰果</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">开心果</a></li>
-                                <li><a href="http://b2b.cloud.com" target="_blank">桃仁</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">巧克力</a></li>
-                                <li><a href="http://b2b.jcoud.com" target="_blank">饼干</a></li>
-                                <li><a href="http://b2b.cloud.com" target="_blank">简装系列</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">礼盒系列</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">按需定制</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">0-30元</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">30-60元</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">60-100元</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">100-200元</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">200-500元</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">500元以上</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">广东产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">江苏产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">山东产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">新疆产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">浙江产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">广东产</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">零售</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">日用</a></li>
-                                <li><a href="http://b2b.jcloud.com" target="_blank">电子产品</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="f-item-c">
                         <ul>
                             <li>
-                                <div class="item-fold" data-itemid="2">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/85b03e12-e1dd-46dc-b7bf-6ffb4bc99822.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/5cff9fcf-d82c-4cdb-bebe-1ef348517745.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="2"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="item-fold" data-itemid="3">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/c1126ada-e3a2-4200-9a6f-094808578118.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/bbc662ff-9d10-41ee-9a9c-935de891217e.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="3"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="item-fold" data-itemid="4">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/b63ebe3e-e086-424b-8af3-8fd084ff18a6.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/8636db95-2538-41cc-ac90-48447129f344.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="4"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="item-fold" data-itemid="5">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3ad21f04-f954-49ef-b5da-21979171d63f.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/6c651da1-956b-4659-b918-b8bdfe682d19.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="5"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="item-fold" data-itemid="6">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/6f3d7d0c-83ac-46ec-a7b5-51e80ca1163e.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/1c74d8cb-0316-48bd-b0db-2f674df7d089.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="6"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div class="item-fold" data-itemid="7">
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
                                     <div class="pic">
-                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/b221092f-740f-4111-890b-ae406cca8b72.jpg" width="216" height="216"></a>
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
                                     </div>
                                     <div class="txt">
-                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
-                                        <div class="7"></div>
-                                        <div class="shopInfo"></div>
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="f-item-r">
+                    <!-- <div class="f-item-r">
                         <div class="rank">
                             <div class="rank-hd">
                                 <span>排行榜</span>
                                 <ul class="rank-tab">
-                                    <li id="rankA1_1000585" onclick="setTab(1, 1000585)" class="hover">热销</li>
-                                    <li id="rankA2_1000585" onclick="setTab(2, 1000585)" class="">好评</li>
+                                    <li id="rankA1_1000792" onclick="setTab(1, 1000792)" class="hover">热销</li>
+                                    <li id="rankA2_1000792" onclick="setTab(2, 1000792)" class="">好评</li>
                                 </ul>
                             </div>
                             <div class="rank-bd">
-                                <div id="con-rankA-1-1000585" class="con-list" style="display:block;">
-                                    <ul id="ul_floor_rank_hot_1000585" value="1000585">
+                                <div id="con-rankA-1-1000792" class="con-list" style="display:block;">
+                                    <ul id="ul_floor_rank_hot_1000792" value="1000792">
                                     </ul>
                                 </div>
-                                <div id="con-rankA-2-1000585" class="con-list" style="display:none;">
-                                    <ul id="ul_floor_rank_evaluate_1000585" value="1000585">
+                                <div id="con-rankA-2-1000792" class="con-list" style="display:none;">
+                                    <ul id="ul_floor_rank_evaluate_1000792" value="1000792">
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- E  1F} -->
+            <!-- S 2F -->
+            <div class="floor-item floor-item2" data-fid="1" clstag="pageclick|keycount|201601052|53">
+                <div class="hd">
+                    <h2><a href="javascript:void(0)"><i></i>新年大促</a></h2>
+                    <div class="floor-nav">
+                        <ul class="floor-nav-list">
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bd cl poster-right">
+                    <div class="f-item-l">
+                        <div class="img">
+                            <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
+                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/138e8edb-23c8-4afc-aec5-f4122939ed91.png" width="229" height="333">
+                           <!--      <span class="btn">
+                        立即抢购>
+                    </span> -->
+                            </a>
+                        </div>
+                        <!-- <div class="link">
+                            <ul>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="f-item-c">
+                        <ul>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/243f0bc3-e9e5-4562-b4b3-f4787426546d.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/62c2e9b0-26e7-4b99-b971-d65392945f41.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/8f2b75db-e82f-45fd-9d43-4c064d364dde.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/786ef345-6bb5-4f0a-93b4-4ffb40a2c6a2.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/1107df5b-1e5d-40eb-a082-c7bf6fe06b20.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div class="f-item-r">
+                        <div class="rank">
+                            <div class="rank-hd">
+                                <span>排行榜</span>
+                                <ul class="rank-tab">
+                                    <li id="rankA1_1000793" onclick="setTab(1, 1000793)" class="hover">热销</li>
+                                    <li id="rankA2_1000793" onclick="setTab(2, 1000793)" class="">好评</li>
+                                </ul>
+                            </div>
+                            <div class="rank-bd">
+                                <div id="con-rankA-1-1000793" class="con-list" style="display:block;">
+                                    <ul id="ul_floor_rank_hot_1000793" value="1000793">
+                                    </ul>
+                                </div>
+                                <div id="con-rankA-2-1000793" class="con-list" style="display:none;">
+                                    <ul id="ul_floor_rank_evaluate_1000793" value="1000793">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- E  2F} -->
             <script type="text/javascript">
-            atemp = ",1:'女鞋'";
-            var itemIds = ",2,3,4,5,6,7";
+            atemp = ",1:'限时特惠',2:'新年大促'";
+            var itemIds = "";
             if (atemp == "") {
                 smallTitleJson = "";
             } else {
@@ -584,6 +807,7 @@
             }
             if (itemIds.length > 0) {
                 itemIds = itemIds.substring(1);
+
                 var response = window.mock.queryitemmaxprice;
                 if (response.flag) {
                     for (var i = 0, len = response.list.length; i < len; i++) {
@@ -625,91 +849,54 @@
             </script>
         </div>
         <input type="hidden" id="hid_PlatformVersion" value="1" />
-        <script type="text/javascript" src="js/home/mall-home.js"></script>
+        <script type="text/javascript" src="http://www.yrj.com/js/home/mall-home.js"></script>
         <!-- 如果未登录则去取一下uuid -->
         <!-- content begin -->
         <!-- footer begin -->
         <footer class="footer">
             <div class="footer-links" clstag="pageclick|keycount|201601052|54">
                 <dl>
-                    <dt>购物指南</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=78&type=2" target="_blank">&#36141;&#29289;&#27969;&#31243;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=79&type=2" target="_blank">&#20250;&#21592;&#20171;&#32461;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=80&type=2" target="_blank">&#24120;&#35265;&#38382;&#39064;</a></dd>
+                    <dt>关于友谊</dt>
+                    <dd><a href="http://www.yrj.com/help?id=116&type=2" target="_blank">&#20844;&#21496;&#31616;&#20171;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=117&type=2" target="_blank">&#20225;&#19994;&#25991;&#21270;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=118&type=2" target="_blank">&#20225;&#19994;&#24180;&#37492;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=119&type=2" target="_blank">&#20225;&#19994;&#33635;&#35465;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=120&type=2" target="_blank">&#21697;&#36136;&#31649;&#25511;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=121&type=2" target="_blank">&#25216;&#26415;&#30740;&#21457;</a></dd>
                 </dl>
                 <dl>
-                    <dt>配送方式</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=81&type=2" target="_blank">211&#38480;&#26102;&#36798;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=82&type=2" target="_blank">&#37197;&#36865;&#36153;&#25910;&#21462;&#26631;&#20934;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=83&type=2" target="_blank">&#37197;&#36865;&#26381;&#21153;&#26597;&#35810;</a></dd>
+                    <dt>联系我们</dt>
+                    <dd><a href="http://www.yrj.com/help?id=134&type=2" target="_blank">&#32852;&#31995;&#26041;&#24335;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=167&type=2" target="_blank">&#24847;&#35265;&#21644;&#24314;&#35758;</a></dd>
                 </dl>
                 <dl>
-                    <dt>支付方式</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=84&type=2" target="_blank">&#22312;&#32447;&#25903;&#20184;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=85&type=2" target="_blank">&#20998;&#26399;&#20184;&#27454;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=86&type=2" target="_blank">&#20844;&#21496;&#36716;&#36134;</a></dd>
-                </dl>
-                <dl>
-                    <dt>售后服务</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=87&type=2" target="_blank">&#21806;&#21518;&#25919;&#31574;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=88&type=2" target="_blank">&#20215;&#26684;&#20445;&#25252;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=89&type=2" target="_blank">&#21462;&#28040;&#35746;&#21333;</a></dd>
-                </dl>
-                <dl>
-                    <dt>特色服务</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=90&type=2" target="_blank">&#22842;&#23453;&#23707;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=91&type=2" target="_blank">DIY&#35013;&#26426;</a></dd>
-                </dl>
-                <dl>
-                    <dt>采购商服务</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=92&type=2" target="_blank">&#25214;&#20379;&#24212;&#21830;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=93&type=2" target="_blank">&#37319;&#36141;&#24179;&#21488;</a></dd>
-                </dl>
-                <dl>
-                    <dt>供应商服务</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=94&type=2" target="_blank">&#21334;&#23478;&#26381;&#21153;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=95&type=2" target="_blank">&#29289;&#27969;&#26381;&#21153;</a></dd>
+                    <dt>关于平台</dt>
+                    <dd><a href="http://www.yrj.com/help?id=163&type=2" target="_blank">&#24179;&#21488;&#20171;&#32461;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=170&type=2" target="_blank">&#24179;&#21488;&#21830;&#21697;&#20171;&#32461;</a></dd>
                 </dl>
                 <dl>
                     <dt>新手指南</dt>
-                    <dd><a href="http://b2b.jcloud.com/help?id=96&type=2" target="_blank">&#27880;&#20876;&#26032;&#29992;&#25143;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=97&type=2" target="_blank">&#20080;&#23478;&#20837;&#38376;</a></dd>
-                    <dd><a href="http://b2b.jcloud.com/help?id=98&type=2" target="_blank">&#21334;&#23478;&#20837;&#38376;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=164&type=2" target="_blank">&#20080;&#23478;&#35748;&#35777;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=166&type=2" target="_blank">&#29992;&#25143;&#27880;&#20876;</a></dd>
+                    <dd><a href="http://www.yrj.com/help?id=165&type=2" target="_blank">&#21334;&#23478;&#35748;&#35777;</a></dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd><a href="http://www.yrj.com/help?id=168&type=2" target="_blank">&#25903;&#20184;&#26041;&#24335;</a></dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd><a href="http://www.yrj.com/help?id=169&type=2" target="_blank">&#21806;&#21518;&#26381;&#21153;</a></dd>
                 </dl>
             </div>
             <div class="footer-link" clstag="pageclick|keycount|201601052|55">
-                <a href="http://b2b.jcloud.com/help?id=100&type=3" target="_blank">&#20851;&#20110;&#25105;&#20204;</a>|
-                <a href="http://b2b.jcloud.com/help?id=101&type=3" target="_blank">&#32852;&#31995;&#25105;&#20204;</a>|
-                <a href="http://b2b.jcloud.com/help?id=102&type=3" target="_blank">&#21451;&#24773;&#38142;&#25509;</a>
+                <a href="http://www.yrj.com/help?id=136&type=3" target="_blank">&#20851;&#20110;&#25105;&#20204;</a>|
+                <a href="http://www.yrj.com/help?id=137&type=3" target="_blank">&#32852;&#31995;&#25105;&#20204;</a>|
+                <a href="http://www.yrj.com/help?id=138&type=3" target="_blank">&#21830;&#23478;&#20837;&#39547;</a>|
+                <a href="http://www.yrj.com/help?id=171&type=3" target="_blank">&#21451;&#26085;&#20037;</a>
             </div>
             <div class="footer-txt">
-                <p>
-                    <div style="text-align:center;">
-                        <div class="copyright" style="margin:10px 0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;text-align:center;">
-                            <div class="copyright" style="text-align:center;margin:10px 0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;">
-                                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000088"><img src="http://img13.360buyimg.com/cms/jfs/t2293/321/1377257360/19256/c267b386/56a0a994Nf1b662dc.png" />&nbsp;京公网安备 11000002000088号</a>&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证070359号&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="http://img14.360buyimg.com/da/jfs/t256/349/769670066/270505/3b03e0bb/53f16c24N7c04d9e9.jpg">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>&nbsp;&nbsp;|&nbsp;&nbsp;新出发京零 字第大120007号
-                                <br />
-                                <a href="http://misc.360buyimg.com/skin/df/i/com/f_music.jpg" target="_blank">音像制品经营许可证苏宿批005号</a>&nbsp;&nbsp;|&nbsp;&nbsp;出版物经营许可证编号新出发(苏)批字第N-012号&nbsp;&nbsp;|&nbsp;&nbsp;互联网出版许可证编号新出网证(京)字150号
-                                <br />
-                                <a href="http://misc.360buyimg.com/wz/wlwhjyxkz.jpg" target="_blank">网络文化经营许可证京网文[2014]2148-348号</a>&nbsp;&nbsp;违法和不良信息举报电话：4006561155&nbsp;&nbsp;Copyright&nbsp;&copy;&nbsp;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
-                                <br /> 京东旗下网站：
-                                <a href="https://www.jdpay.com/" target="_blank">京东钱包</a>
-                            </div>
-                            <div class="authentication" style="text-align:center;margin:0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;">
-                                <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026"><img width="103" height="32" alt="经营性网站备案中心" src="http://img12.360buyimg.com/da/jfs/t535/349/1185317137/2350/7fc5b9e4/54b8871eNa9a7067e.png" class="err-product" />&nbsp;</a>
-                                <a target="_blank" id="urlknet" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005"><img border="true" width="103" height="32" alt="可信网站" src="http://img11.360buyimg.com/da/jfs/t643/61/1174624553/2576/4037eb5f/54b8872dNe37a9860.png" class="err-product" />&nbsp;</a>
-                                <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do"><img width="103" height="32" alt="网络警察" src="http://img12.360buyimg.com/cms/jfs/t2050/256/1470027660/4336/2a2c74bd/56a89b8fNfbaade9a.jpg" class="err-product" />&nbsp;</a>
-                                <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836"><img width="103" height="32" src="http://img11.360buyimg.com/da/jfs/t451/173/1189513923/1992/ec69b14a/54b8875fNad1e0c4c.png" class="err-product" />&nbsp;</a>
-                                <a target="_blank" href="http://www.12377.cn/"><img width="103" height="32" src="http://img30.360buyimg.com/da/jfs/t1915/215/1329999964/2996/d7ff13f0/5698dc03N23f2e3b8.jpg" /></a>&nbsp;
-                                <a target="_blank" href="http://www.12377.cn/node_548446.htm"><img width="103" height="32" src="http://img14.360buyimg.com/da/jfs/t2026/221/2097811452/2816/8eb35b4b/5698dc16Nb2ab99df.jpg" /></a>
-                            </div>
-                            <div>
-                                <br />
-                            </div>
-                            <br />
-                        </div>
-                    </div>
-                </p>
+                <p></p>
                 <p>Copyright © 2004-2016 京东JD.com 版权所有 </p>
                 <p>Mail：mjcloud@jd.com Tel：010-56754128 </p>
             </div>
@@ -727,39 +914,21 @@
         var jap = {
             siteId: 'JA2015_181330',
             topic: 'traffic-b2b',
-            account: '1001940',
+            account: '',
             skuid: '',
             shopid: '',
             orderid: ''
         };
-        (function() {
-            var ja = document.createElement('script');
-            ja.type = 'text/javascript';
-            ja.async = true;
-            ja.src = 'js/misc.ja.js';
-            var s = document.getElementsByTagName('script')[0];
-            // s.parentNode.insertBefore(ja, s);
-        })();
         </script>
         <script type="text/javascript">
         var jap = {
             siteId: 'JA2015_181330',
             topic: 'traffic-b2b',
-            account: '1001940',
+            account: '',
             skuid: '',
             shopid: '',
             orderid: '',
         };
-        (function() {
-            var ja = document.createElement('script');
-            ja.type = 'text/javascript';
-            ja.async = true;
-            ja.src = 'js/wlja.js';
-            //      172.27.32.129
-            //      ja.src='http://172.27.32.129/jdf/1.0.0/unit/ja/1.0.0/ja.js'
-            var s = document.getElementsByTagName('script')[0];
-            // s.parentNode.insertBefore(ja, s);
-        })();
         </script>
         <!-- footer begin -->
 </body>
