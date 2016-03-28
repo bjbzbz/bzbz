@@ -1,11 +1,767 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>北京保证包装demo</title>
-  <script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.js"></script>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta charset="utf-8" />
+    <title> 京东电商云 </title>
+    <link rel="icon" href="http://storage.jd.com/b2b.jcloud.jd.com/4b1bad5b-4ae1-4276-b4cb-3a6c4fb9e453.png" mce_href="http://storage.jd.com/b2b.jcloud.jd.com/4b1bad5b-4ae1-4276-b4cb-3a6c4fb9e453.png" type="image/x-icon">
+    <meta name="description" content=" 京东电商云综合性批发平台友谊 ">
+    <meta name="Keywords" content=" 京东电商云 友谊 ">
+    <link rel="stylesheet" href="css/common.css?v=20141021" />
+    <link rel="stylesheet" href="css/main.css?v=20141021" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20140820"></script>
+    <script src="http://misc.360buyimg.com/jdf/1.0.0/unit/trimPath/1.0.0/trimPath.js?v=20140820" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js?v=20140820"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js?v=20140820"></script>
+    <script type="text/javascript" src="js/common.js?v=20140820"></script>
+    <script type="text/javascript" src="js/html5.js?v=20140820"></script>
+    <script src="mock/all.js"></script>
+    <script src="mock/provincedisplay.js"></script>
+    <script src="mock/getHotAndEvaluateShops.js"></script>
+    <script src="mock/queryitemmaxprice.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    window.pageConfig = {};
+    </script>
 </head>
+
 <body>
-  <header class=""></header>
+    <!-- head begin -->
+    <!-- header begin -->
+    <div class="side-bar">
+        <div class="side-item side-cart" id="side_cart_link">
+            <a href="http://b2b.jcloud.com/cart" target="_blank" clstag="pageclick|keycount|201601052|56">
+                <i class="side-icon" id="cartEnd"></i>
+                <div class="side-text">购物车</div>
+                <div class="num"> 0 </div>
+            </a>
+        </div>
+        <div class="side-item side-favor">
+            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank" clstag="pageclick|keycount|201601052|58">
+                <div class="side-line">
+                    <i class="side-icon"></i>
+                    <div class="side-text">收藏夹</div>
+                </div>
+            </a>
+        </div>
+        <div class="side-item side-kf">
+            <a href='http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes' target="_blank" clstag="pageclick|keycount|201601052|57">
+                <i class="side-icon"></i>
+            </a>
+        </div>
+        <div class="success-tips hide">
+            <span class="arr"></span>
+            <a href="javascript:;" class="close">关闭</a>
+            <div class="bd">
+                <i></i>
+                <p class="tt">成功加入购物车！</p>
+                <p>您可以<a href="http://b2b.jcloud.com/cart">去购物车结算</a></p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <script type="text/javascript">
+        function getContextPath() {
+            return 'http://b2b.jcloud.com';
+        }
+        //店铺域名
+        var _shopDomain = "shop-b2b.jcloud.com";
+        </script>
+        <!-- header nav begin -->
+        <div class="site-nav">
+            <div class="area">
+                <div id="div_login_info" class="login-info">
+                    Hi，<a href="http://buyer-b2b.jcloud.com" title="565153851@qq.com" target="_blank">
+                                            565153851@qq.com
+                            </a> ，欢迎来到电商云演示！
+                    <a href="http://pass-b2b.jcloud.com/logout">[退出]</a>
+                </div>
+                <ul class="quick-menu">
+                    <li class="area-txt"><i class="area-icon"></i><span id="selected_province"></span></li>
+                    <li class="area-tab menu">
+                        <a href="javascript:void(0);" onmouseover="provinceChangeJS.mouseOver()">切换省份<b></b></a>
+                        <div class="sub-bd">
+                            <div id="area_content" class="s-area-choose"></div>
+                        </div>
+                    </li>
+                    <li class="cut">|</li>
+                    <li><a href="http://b2b.jcloud.com" target="_blank">商城首页</a></li>
+                    <li class="cut">|</li>
+                    <li><a href="http://b2b.jcloud.com/category" target="_blank">商品分类</a></li>
+                    <li class="cut">|</li>
+                    <li class="favorite menu">
+                        <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank"><i class="scj-icon"></i>收藏夹<b></b></a>
+                        <div class="sub-bd ">
+                            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/fav-item" target="_blank">收藏的商品</a>
+                            <a href="http://buyer-b2b.jcloud.com/index#url=/favor/myfavshop?type=shop" target="_blank">收藏的店铺</a>
+                        </div>
+                    </li>
+                    <li class="cut">|</li>
+                    <li class="cart menu" id="mini_cart_li">
+                        <a href="http://b2b.jcloud.com/cart" target="_blank" id="mini_cart_link" style="line-height: 28px;display:inline-block"><i class="cart-icon"></i>进货车<span class="cart-num">0</span><b></b></a>
+                    </li>
+                    <!-- S 2015-12-15 移动商城 -->
+                    <li class="cut">|</li>
+                    <li class="qrcode menu">
+                        <a href="http://b2b.jcloud.com/mobileMall/download" target="_blank"><i class="qr-icon"></i>移动商城<b></b></a>
+                        <div class="sub-bd ">
+                            <div class="qr-box brt-dot">
+                                <div class="text">微信扫一扫
+                                    <br>关注B2B微信商城</div>
+                                <div class="qr-img"><img src="images/qr/wx-select.jpg" width="136" height="136"></div>
+                            </div>
+                            <div class="qr-box">
+                                <div class="text">扫描二维码
+                                    <br>立即下载APP</div>
+                                <div class="qr-img"><img src="images/qr/app-select.png" width="136" height="136"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- E 2015-12-15 移动商城 -->
+                </ul>
+            </div>
+        </div>
+        <!-- 选择地区 -->
+        <div class="popup-area" style="display:none">
+            <div class="area-mask"></div>
+            <div id="area_choose" class="area-choose"></div>
+        </div>
+        <script type="text/javascript" src="js/cart/min-cart.js?v=20140820"></script>
+        <script type="text/javascript">
+        jQuery(document).ready(function() {
+            loadMiniCartNum();
+            jQuery('#mini_cart_link').unbind().bind('mouseover', function() {
+                loadMiniCart();
+            });
+        });
+        </script>
+        <!-- ths form is no longer used. huafeng 2015.11.04
+<form id="province_selection_Form" action="/provinceSelected" method="post">
+  <input type="hidden" name="provinceCode"/>
+  <input type="hidden" name="provinceName"/>
+</form>
+-->
+        <script type="text/javascript" src="js/home/provincechange.js?v=20140820"></script>
+        <!-- header nav end -->
+        <div class="w-header">
+            <div class="logo">
+                <h1><a href="http://b2b.jcloud.com"><img title="电商云演示" src="http://storage.jd.com/b2b.jcloud.jd.com/b78368e7-cac1-4c26-b86a-96f2c0fd3e11.png" width="155" height="45"></a></h1>
+            </div>
+            <div class="search">
+                <!-- S 搜索分类切换 -->
+                <div class="search-tab">
+                    <ul>
+                        <li class="first on" url="http://b2b.jcloud.com/search">商品</li>
+                        <li url="http://b2b.jcloud.com/purchase/search">求购</li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <form method="post" id="item_head_form" name="itemPagerForm" action="http://b2b.jcloud.com/search">
+                        <input type="hidden" id="hid_head_keyword" name="keyword" value="" />
+                    </form>
+                    <input type="text" id="txt_keyword" class="search-ipt" placeholder="请输入商品名称" onfocus="this.placeholder=''" onblur="this.placeholder='请输入商品名称'" value="" onkeypress="searchByKeydown(event)" />
+                    <input type="button" class="search-btn" value="搜索" onclick="searchByKeyword()" />
+                </div>
+                <!-- <div class="ft">
+                <ul class="search-hots">
+                    <li class="first"><a href="javascript:void(0)">自动铅笔</a></li>
+                    <li><a href="javascript:void(0)">自动铅笔</a></li>
+                    <li><a href="javascript:void(0)">自动铅笔</a></li>
+                    <li><a href="javascript:void(0)">自动铅笔</a></li>
+                </ul>
+            </div> -->
+                <!-- E 搜索分类切换 -->
+            </div>
+            <div class="security">
+                <ul>
+                    <li><a href="javascript:void(0)"><i class="icon"></i><span>诚信保障</span></a></li>
+                    <li><a href="javascript:void(0)"><i class="icon2"></i><span>企业认证</span></a></li>
+                    <li><a href="javascript:void(0)"><i class="icon3"></i><span>安全交易</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <script type="text/javascript">
+    //按关键字搜索商品列表
+    function searchByKeyword() {
+        var _keyword = jQuery.trim($("#txt_keyword").val());
+        if (_keyword != "") {
+            $("#hid_head_keyword").val(_keyword);
+            $("#txt_keyword").val(_keyword);
+            $("#item_head_form").submit();
+        }
+    }
+
+
+    //按关键字搜索商品列表
+    function searchByCertainKeyword(_keyword) {
+        $("#hid_head_keyword").val(_keyword);
+        $("#txt_keyword").val(_keyword);
+        $("#item_head_form").submit();
+    }
+
+    function searchByKeydown(e) {
+        if (e.keyCode == 13) {
+            searchByKeyword();
+        }
+    }
+    </script>
+    <!-- head end -->
+    <!-- nav begin -->
+    <div id="nav">
+        <div class="area">
+            <div class="categorys hover" onmouseover="$('#div_all_cats').show()" onmouseout="$('#div_all_cats').hide()">
+            </div>
+            <!-- S 采购频道入口 当前采购频道添加class on -->
+            <div class="menu">
+                <ul>
+                    <li class="on"><a href="http://b2b.jcloud.com/purchase">采购频道</a></li>
+                </ul>
+            </div>
+            <!-- E 采购频道入口 -->
+            <div class="link">
+                <div class="link-buy" clstag="pageclick|keycount|201601052|27"><a href="http://buyer-b2b.jcloud.com" target="_blank"><i></i>买家中心</a></div>
+                <span></span>
+                <div class="link-sale" clstag="pageclick|keycount|201601052|28"><a href="http://shop-b2b.jcloud.com" target="_blank"><i></i>卖家中心</a></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    loadAllCategory();
+
+    function loadAllCategory() {
+        $('.categorys').html(window.mock.categoryAll);
+    }
+    </script>
+    <!-- nav end -->
+    <!-- crumbs begin -->
+    <!-- crumbs end -->
+    <!-- content begin -->
+    <script type="text/javascript">
+    window.jdpts = {};
+    jdpts._st = new Date().getTime();
+    </script>
+    <div id="content" class="area cl">
+        <!-- S banner -->
+        <div class="main-area cl">
+            <div class="banner">
+                <div id="main-slider" class="main-slider">
+                    <div class="hd">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            <li>
+                                <a href="/count/adclick?url=http://b2b.jcloud.com/item/1001490" clstag="pageclick|keycount|201601052|37" target="_blank"><img alt="专题页面测试" title="专题页面测试" src="http://storage.jd.com/b2b.jcloud.jd.com/1cf6d4ce-5ea0-4a59-b7b4-cec570a6a58d.jpg" width="740" height="470" /></a>
+                            </li>
+                            <li>
+                                <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" clstag="pageclick|keycount|201601052|38" target="_blank"><img alt="限时抢购" title="限时抢购" src="http://storage.jd.com/b2b.jcloud.jd.com/c1a11a34-0a77-41df-8540-3b7e18f8ded8.jpg" width="740" height="470" /></a>
+                            </li>
+                            <li>
+                                <a href="/count/adclick?url=123" clstag="pageclick|keycount|201601052|39" target="_blank"><img alt="3" title="3" src="http://storage.jd.com/b2b.jcloud.jd.com/3e122833-60ce-45d1-a84e-f3f6ada88e08.jpg" width="740" height="470" /></a>
+                            </li>
+                            <li>
+                                <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" clstag="pageclick|keycount|201601052|40" target="_blank"><img alt="轮播图" title="轮播图" src="http://storage.jd.com/b2b.jcloud.jd.com/af6be81a-b703-4eff-ac4a-d3f612fce5fb.jpg" width="740" height="470" /></a>
+                            </li>
+                            <li>
+                                <a href="/count/adclick?url=" clstag="pageclick|keycount|201601052|41" target="_blank"><img alt="逗你玩" title="逗你玩" src="http://storage.jd.com/b2b.jcloud.jd.com/67c09ffc-a376-4921-8bed-217b63fc1f31.jpg" width="740" height="470" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="info-side">
+                <div class="is-user" clstag="pageclick|keycount|201601052|29">
+                    <!-- 已登录 -->
+                    <div class="login">
+                        <div class="top">
+                            <div class="avatar">
+                                <a href="javascript:void(0)"><img src="images/temp/user-pic.png" width="60px" height="60px"></a>
+                            </div>
+                            <div class="txt">
+                                <p class="name">Hi，<a href="http://buyer-b2b.jcloud.com" target="_blank" title="565153851@qq.com">
+                                              565153...
+                                          </a></p>
+                                <p class="xy">
+                                    <!--<span>信誉</span><img src="">-->
+                                    <a href="http://pass-b2b.jcloud.com/logout" class="r-btn">[退出]</a>
+                                </p>
+                            </div>
+                            <div class="bg-avatar"></div>
+                        </div>
+                        <div class="middle">
+                            <div class="link1"><a href="http://b2b.jcloud.com/authenticate/tobuyer"><i></i>认证买家</a></div>
+                            <div class="link2"><a href="http://b2b.jcloud.com/authenticate/toseller"><i></i>认证卖家</a></div>
+                        </div>
+                        <div class="bottom">
+                            <ul>
+                                <li>
+                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/10?orderType=10&pageNum=1&pageSize=5" target="_blank">
+                                        <span>1</span>
+                                        <p>待付款</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/30?orderType=30&pageNum=1&pageSize=5" target="_blank">
+                                        <span>0</span>
+                                        <p>待确认收货</p>
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a href="http://buyer-b2b.jcloud.com/index#url=/order/orderView/991?orderType=991&pageNum=1&pageSize=5" target="_blank">
+                                        <span>3</span>
+                                        <p>待评价</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ft">
+                        <div class="link1"><a href="http://b2b.jcloud.com/help?id=107&type=1" target="_blank"><i></i>&#36141;&#29289;&#24341;&#23548;</a></div>
+                        <div class="link2"><a href="http://b2b.jcloud.com/help?id=109&type=1" target="_blank"><i></i>&#24179;&#21488;&#35268;&#21017;</a></div>
+                    </div>
+                </div>
+                <div class="is-news">
+                    <dl>
+                        <dt>公告</dt>
+                        <dd class="first" clstag="pageclick|keycount|201601052|31">
+                            <a href="/notice/noticeinfo/1000192" target="_blank">&#20844;&#21578;&#22270;&#29255;&#27979;&#35797;</a>
+                        </dd>
+                        <dd clstag="pageclick|keycount|201601052|33">
+                            <a href="/notice/noticeinfo/1000182" target="_blank">&#27426;&#36814;&#20809;&#20020;&#20140;&#33678;&#32593;&#65281;</a>
+                        </dd>
+                        <dd clstag="pageclick|keycount|201601052|36">
+                            <a href="/notice/noticeinfo/1000180" target="_blank">&#27979;&#35797;&#21151;&#33021;</a>
+                        </dd>
+                        <dd>
+                            <a href="/notice/noticeinfo/1000148" target="_blank">&#12304;&#29305;&#24800;&#12305;&#24180;&#36135;&#24102;&#22238;&#23478;&#65281;12GB&#19978;...</a>
+                        </dd>
+                    </dl>
+                    <a href="http://b2b.jcloud.com/notice/" class="more" clstag="pageclick|keycount|201601052|30" target="_blank">更多></a>
+                </div>
+            </div>
+        </div>
+        <!-- E banner -->
+        <!-- S 商城精选 -->
+        <div class="showcase" id="div_mall_jingxuan">
+            <div class="hd">
+            </div>
+            <div class="bd">
+                <ul>
+                    <li>
+                        <div class="item item1" clstag="pageclick|keycount|201601052|43">
+                            <div class="aside">
+                                <a href="http://b2b.jcloud.com/itemlist/1000585" target="_blank">
+                                </a>
+                            </div>
+                            <a href="/count/adclick?url=http://b2b.jcloud.com/itemlist/1000585" target="_blank"><img alt="京东电商云" src="http://storage.jd.com/b2b.jcloud.jd.com/efa212b1-f95e-4d76-9e10-799948e1d592.jpg" width="380" height="450"></a>
+                        </div>
+                    </li>
+                    <li class="ml10">
+                        <div class="cl">
+                            <div class="item item2" clstag="pageclick|keycount|201601052|44">
+                                <div class="aside">
+                                    <a href="123" target="_blank">
+                                    </a>
+                                </div>
+                                <a href="/count/adclick?url=123" target="_blank"><img alt="2" src="http://storage.jd.com/b2b.jcloud.jd.com/752bc5ec-8e8c-46ca-be5f-cb1ed1117716.jpg" width="300" height="210"></a>
+                            </div>
+                            <div class="item item2 ml10" clstag="pageclick|keycount|201601052|45">
+                                <div class="aside">
+                                    <a href="123" target="_blank">
+                                    </a>
+                                </div>
+                                <a href="/count/adclick?url=123" target="_blank"><img alt="3" src="http://storage.jd.com/b2b.jcloud.jd.com/72795e6f-b1e7-4804-8adc-ba5190272f66.jpg" width="300" height="210"></a>
+                            </div>
+                        </div>
+                        <div class="item item3 mt10" clstag="pageclick|keycount|201601052|46">
+                            <div class="aside">
+                                <a href="123" target="_blank">
+                                </a>
+                            </div>
+                            <a href="/count/adclick?url=123" target="_blank"><img alt="4" src="http://storage.jd.com/b2b.jcloud.jd.com/c99c9f4d-affc-42b2-9c3b-c422125b8a32.jpg" width="610" height="230"></a>
+                        </div>
+                    </li>
+                    <li class="ml10">
+                        <div class="item item4" clstag="pageclick|keycount|201601052|47">
+                            <div class="aside">
+                                <a href="123" target="_blank">
+                                </a>
+                            </div>
+                            <a href="/count/adclick?url=123" target="_blank"><img alt="5" src="http://storage.jd.com/b2b.jcloud.jd.com/42a1c609-b21b-48f7-bd44-923630928c10.jpg" width="190" height="100"></a>
+                        </div>
+                        <div class="item item4 mt10" clstag="pageclick|keycount|201601052|48">
+                            <div class="aside">
+                                <a href="123" target="_blank">
+                                </a>
+                            </div>
+                            <a href="/count/adclick?url=123" target="_blank"><img alt="6" src="http://storage.jd.com/b2b.jcloud.jd.com/ea0244fe-0104-4d03-b26c-d95d329d99de.jpg" width="190" height="100"></a>
+                        </div>
+                        <div class="item item5 mt10" clstag="pageclick|keycount|201601052|49">
+                            <div class="aside">
+                                <a href="123" target="_blank">
+                                </a>
+                            </div>
+                            <a href="/count/adclick?url=123" target="_blank"><img alt="7" src="http://storage.jd.com/b2b.jcloud.jd.com/df3ef03d-90b2-4ff3-b0e0-57dca5825334.jpg" width="190" height="230"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- E 商城精选 -->
+        <div id="floors-list" class="floor-list">
+            <script type="text/javascript">
+            var smallTitleJson = "{";
+            var atemp = "";
+            var webQQ = "2431109318";
+            </script>
+            <!-- S 1F -->
+            <div class="floor-item floor-item1" data-fid="0" clstag="pageclick|keycount|201601052|53">
+                <div class="hd">
+                    <h2><a href="javascript:void(0)"><i></i>女鞋</a></h2>
+                    <div class="floor-nav">
+                        <ul class="floor-nav-list">
+                            <li class="first"><a href="http://b2b.choud.com" target="_blank">年货一站式采购</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bd cl">
+                    <div class="f-item-l">
+                        <div class="img">
+                            <a href="http://b2b.jcloud.com/itemlist/1000588" target="_blank">
+                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/02c512e7-c301-4ac8-acb9-4811809e8b97.jpg" width="229" height="333">
+                                <span class="btn">
+                        立即抢购>
+                    </span>
+                            </a>
+                        </div>
+                        <div class="link">
+                            <ul>
+                                <li><a href="http://b2b.cloud.com" target="_blank">核桃</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">腰果</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">开心果</a></li>
+                                <li><a href="http://b2b.cloud.com" target="_blank">桃仁</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">巧克力</a></li>
+                                <li><a href="http://b2b.jcoud.com" target="_blank">饼干</a></li>
+                                <li><a href="http://b2b.cloud.com" target="_blank">简装系列</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">礼盒系列</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">按需定制</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">0-30元</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">30-60元</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">60-100元</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">100-200元</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">200-500元</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">500元以上</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">广东产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">江苏产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">山东产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">新疆产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">浙江产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">广东产</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">零售</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">日用</a></li>
+                                <li><a href="http://b2b.jcloud.com" target="_blank">电子产品</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="f-item-c">
+                        <ul>
+                            <li>
+                                <div class="item-fold" data-itemid="2">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/85b03e12-e1dd-46dc-b7bf-6ffb4bc99822.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="2"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="3">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/c1126ada-e3a2-4200-9a6f-094808578118.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="3"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="4">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/b63ebe3e-e086-424b-8af3-8fd084ff18a6.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="4"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="5">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3ad21f04-f954-49ef-b5da-21979171d63f.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="5"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="6">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/6f3d7d0c-83ac-46ec-a7b5-51e80ca1163e.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="6"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="7">
+                                    <div class="pic">
+                                        <a href="http://123" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/b221092f-740f-4111-890b-ae406cca8b72.jpg" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://123" target="_blank">123</a><i></i></p>
+                                        <div class="7"></div>
+                                        <div class="shopInfo"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="f-item-r">
+                        <div class="rank">
+                            <div class="rank-hd">
+                                <span>排行榜</span>
+                                <ul class="rank-tab">
+                                    <li id="rankA1_1000585" onclick="setTab(1, 1000585)" class="hover">热销</li>
+                                    <li id="rankA2_1000585" onclick="setTab(2, 1000585)" class="">好评</li>
+                                </ul>
+                            </div>
+                            <div class="rank-bd">
+                                <div id="con-rankA-1-1000585" class="con-list" style="display:block;">
+                                    <ul id="ul_floor_rank_hot_1000585" value="1000585">
+                                    </ul>
+                                </div>
+                                <div id="con-rankA-2-1000585" class="con-list" style="display:none;">
+                                    <ul id="ul_floor_rank_evaluate_1000585" value="1000585">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E  1F} -->
+            <script type="text/javascript">
+            atemp = ",1:'女鞋'";
+            var itemIds = ",2,3,4,5,6,7";
+            if (atemp == "") {
+                smallTitleJson = "";
+            } else {
+                smallTitleJson += atemp.substring(1) + "}";
+                smallTitleJson = eval("(" + smallTitleJson + ")");
+            }
+            if (itemIds.length > 0) {
+                itemIds = itemIds.substring(1);
+                var response = window.mock.queryitemmaxprice;
+                if (response.flag) {
+                    for (var i = 0, len = response.list.length; i < len; i++) {
+                        jQuery("." + response.list[i].itemId).html("<p>批发价：<span class=\"num\" >" + response.list[i].sellPrice.toFixed(2) + "</span></p>")
+                    }
+                }
+
+            }
+            jQuery(".item-fold").hover(function() {
+                var node = jQuery(this);
+                var itemId = node.attr("data-itemid");
+                if (itemId != null && itemId != "" && jQuery(node).find(".shopInfo").html() == "") {
+                    jQuery.ajax({
+                        url: getContextPath() + '/queryshopinfo',
+                        data: {
+                            'itemId': itemId
+                        },
+                        success: function(data) {
+                            if (data.flag) {
+                                var html = "";
+                                if (data.minmount != null) {
+                                    html += "<p>起批量：<span class='num'>";
+                                    html += data.minmount;
+                                    html += "</span> 部</p>";
+                                }
+                                if (data.located != null) {
+                                    html += "<p class='location'><i></i>";
+                                    html += data.located;
+                                    html += "</p>";
+                                }
+                                jQuery(node).find(".shopInfo").html(html);
+                            }
+                        },
+                        dataType: 'json',
+                        type: 'GET'
+                    });
+                }
+            });
+            </script>
+        </div>
+        <input type="hidden" id="hid_PlatformVersion" value="1" />
+        <script type="text/javascript" src="js/home/mall-home.js"></script>
+        <!-- 如果未登录则去取一下uuid -->
+        <!-- content begin -->
+        <!-- footer begin -->
+        <footer class="footer">
+            <div class="footer-links" clstag="pageclick|keycount|201601052|54">
+                <dl>
+                    <dt>购物指南</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=78&type=2" target="_blank">&#36141;&#29289;&#27969;&#31243;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=79&type=2" target="_blank">&#20250;&#21592;&#20171;&#32461;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=80&type=2" target="_blank">&#24120;&#35265;&#38382;&#39064;</a></dd>
+                </dl>
+                <dl>
+                    <dt>配送方式</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=81&type=2" target="_blank">211&#38480;&#26102;&#36798;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=82&type=2" target="_blank">&#37197;&#36865;&#36153;&#25910;&#21462;&#26631;&#20934;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=83&type=2" target="_blank">&#37197;&#36865;&#26381;&#21153;&#26597;&#35810;</a></dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=84&type=2" target="_blank">&#22312;&#32447;&#25903;&#20184;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=85&type=2" target="_blank">&#20998;&#26399;&#20184;&#27454;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=86&type=2" target="_blank">&#20844;&#21496;&#36716;&#36134;</a></dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=87&type=2" target="_blank">&#21806;&#21518;&#25919;&#31574;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=88&type=2" target="_blank">&#20215;&#26684;&#20445;&#25252;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=89&type=2" target="_blank">&#21462;&#28040;&#35746;&#21333;</a></dd>
+                </dl>
+                <dl>
+                    <dt>特色服务</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=90&type=2" target="_blank">&#22842;&#23453;&#23707;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=91&type=2" target="_blank">DIY&#35013;&#26426;</a></dd>
+                </dl>
+                <dl>
+                    <dt>采购商服务</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=92&type=2" target="_blank">&#25214;&#20379;&#24212;&#21830;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=93&type=2" target="_blank">&#37319;&#36141;&#24179;&#21488;</a></dd>
+                </dl>
+                <dl>
+                    <dt>供应商服务</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=94&type=2" target="_blank">&#21334;&#23478;&#26381;&#21153;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=95&type=2" target="_blank">&#29289;&#27969;&#26381;&#21153;</a></dd>
+                </dl>
+                <dl>
+                    <dt>新手指南</dt>
+                    <dd><a href="http://b2b.jcloud.com/help?id=96&type=2" target="_blank">&#27880;&#20876;&#26032;&#29992;&#25143;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=97&type=2" target="_blank">&#20080;&#23478;&#20837;&#38376;</a></dd>
+                    <dd><a href="http://b2b.jcloud.com/help?id=98&type=2" target="_blank">&#21334;&#23478;&#20837;&#38376;</a></dd>
+                </dl>
+            </div>
+            <div class="footer-link" clstag="pageclick|keycount|201601052|55">
+                <a href="http://b2b.jcloud.com/help?id=100&type=3" target="_blank">&#20851;&#20110;&#25105;&#20204;</a>|
+                <a href="http://b2b.jcloud.com/help?id=101&type=3" target="_blank">&#32852;&#31995;&#25105;&#20204;</a>|
+                <a href="http://b2b.jcloud.com/help?id=102&type=3" target="_blank">&#21451;&#24773;&#38142;&#25509;</a>
+            </div>
+            <div class="footer-txt">
+                <p>
+                    <div style="text-align:center;">
+                        <div class="copyright" style="margin:10px 0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;text-align:center;">
+                            <div class="copyright" style="text-align:center;margin:10px 0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;">
+                                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000088"><img src="http://img13.360buyimg.com/cms/jfs/t2293/321/1377257360/19256/c267b386/56a0a994Nf1b662dc.png" />&nbsp;京公网安备 11000002000088号</a>&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证070359号&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="http://img14.360buyimg.com/da/jfs/t256/349/769670066/270505/3b03e0bb/53f16c24N7c04d9e9.jpg">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>&nbsp;&nbsp;|&nbsp;&nbsp;新出发京零 字第大120007号
+                                <br />
+                                <a href="http://misc.360buyimg.com/skin/df/i/com/f_music.jpg" target="_blank">音像制品经营许可证苏宿批005号</a>&nbsp;&nbsp;|&nbsp;&nbsp;出版物经营许可证编号新出发(苏)批字第N-012号&nbsp;&nbsp;|&nbsp;&nbsp;互联网出版许可证编号新出网证(京)字150号
+                                <br />
+                                <a href="http://misc.360buyimg.com/wz/wlwhjyxkz.jpg" target="_blank">网络文化经营许可证京网文[2014]2148-348号</a>&nbsp;&nbsp;违法和不良信息举报电话：4006561155&nbsp;&nbsp;Copyright&nbsp;&copy;&nbsp;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
+                                <br /> 京东旗下网站：
+                                <a href="https://www.jdpay.com/" target="_blank">京东钱包</a>
+                            </div>
+                            <div class="authentication" style="text-align:center;margin:0px;padding:0px;color:#666666;font-family:Arial, Verdana, 宋体;">
+                                <a target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026"><img width="103" height="32" alt="经营性网站备案中心" src="http://img12.360buyimg.com/da/jfs/t535/349/1185317137/2350/7fc5b9e4/54b8871eNa9a7067e.png" class="err-product" />&nbsp;</a>
+                                <a target="_blank" id="urlknet" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005"><img border="true" width="103" height="32" alt="可信网站" src="http://img11.360buyimg.com/da/jfs/t643/61/1174624553/2576/4037eb5f/54b8872dNe37a9860.png" class="err-product" />&nbsp;</a>
+                                <a target="_blank" href="http://www.bj.cyberpolice.cn/index.do"><img width="103" height="32" alt="网络警察" src="http://img12.360buyimg.com/cms/jfs/t2050/256/1470027660/4336/2a2c74bd/56a89b8fNfbaade9a.jpg" class="err-product" />&nbsp;</a>
+                                <a target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836"><img width="103" height="32" src="http://img11.360buyimg.com/da/jfs/t451/173/1189513923/1992/ec69b14a/54b8875fNad1e0c4c.png" class="err-product" />&nbsp;</a>
+                                <a target="_blank" href="http://www.12377.cn/"><img width="103" height="32" src="http://img30.360buyimg.com/da/jfs/t1915/215/1329999964/2996/d7ff13f0/5698dc03N23f2e3b8.jpg" /></a>&nbsp;
+                                <a target="_blank" href="http://www.12377.cn/node_548446.htm"><img width="103" height="32" src="http://img14.360buyimg.com/da/jfs/t2026/221/2097811452/2816/8eb35b4b/5698dc16Nb2ab99df.jpg" /></a>
+                            </div>
+                            <div>
+                                <br />
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </p>
+                <p>Copyright © 2004-2016 京东JD.com 版权所有 </p>
+                <p>Mail：mjcloud@jd.com Tel：010-56754128 </p>
+            </div>
+        </footer>
+        <!-- footer end -->
+        <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var _src = _bdhmProtocol + "hm.baidu.com/h.js?ad22af61ff3f020e4a996b2702fb670a";
+        var p = document.createElement("script");
+        p.setAttribute("type", "text/javascript");
+        p.setAttribute("src", _src);
+        document.body.appendChild(p);
+        </script>
+        <script type="text/javascript">
+        var jap = {
+            siteId: 'JA2015_181330',
+            topic: 'traffic-b2b',
+            account: '1001940',
+            skuid: '',
+            shopid: '',
+            orderid: ''
+        };
+        (function() {
+            var ja = document.createElement('script');
+            ja.type = 'text/javascript';
+            ja.async = true;
+            ja.src = 'js/misc.ja.js';
+            var s = document.getElementsByTagName('script')[0];
+            // s.parentNode.insertBefore(ja, s);
+        })();
+        </script>
+        <script type="text/javascript">
+        var jap = {
+            siteId: 'JA2015_181330',
+            topic: 'traffic-b2b',
+            account: '1001940',
+            skuid: '',
+            shopid: '',
+            orderid: '',
+        };
+        (function() {
+            var ja = document.createElement('script');
+            ja.type = 'text/javascript';
+            ja.async = true;
+            ja.src = 'js/wlja.js';
+            //      172.27.32.129
+            //      ja.src='http://172.27.32.129/jdf/1.0.0/unit/ja/1.0.0/ja.js'
+            var s = document.getElementsByTagName('script')[0];
+            // s.parentNode.insertBefore(ja, s);
+        })();
+        </script>
+        <!-- footer begin -->
 </body>
+
 </html>
