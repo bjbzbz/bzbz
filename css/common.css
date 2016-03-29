@@ -261,12 +261,39 @@ a:hover {
     clear: both;
     border-top: 1px solid #eee;
     margin-top: 20px;
-    padding: 25px 0;
-    text-align: center;
-    color: #666;
+    padding-bottom: 25px;
+    /* text-align: center; */
+    /* color: #666; */
+    color: #fff;
 }
-
+.footer-links {
+    font-size: 17px;
+    padding-top: 25px;
+    background-image: url("../images/footer/网站底部背景.jpg");
+    background-repeat: no-repeat;
+    background-size: 1200px 100%;
+}
+.footer-links .footer-logo {
+    display: inline-block;
+    margin: 50px 107px 50px 88px;
+    width: 160px;
+    height: 160px;
+    background-image: url("../images/footer/160X160px底部logo.png");
+    vertical-align: top;
+}
+.footer-links .footer-right {
+    width: 830px;
+    display: inline-block;
+    vertical-align: top;
+}
+.footer-links .footer-links-container {
+    /* display: inline-block;
+    width: 830px;
+    vertical-align: top; */
+}
 .footer-link {
+    color: #666;
+    text-align: center;
     padding-bottom: 15px;
 }
 
@@ -276,10 +303,13 @@ a:hover {
 }
 
 .footer-link a:hover {
-    color: #be0a00;
+    /* color: #be0a00; */
+    color: #1573b3;
 }
 
 .footer-txt p {
+    color: #666;
+    text-align: center;
     padding: 3px 0;
 }
 
@@ -1916,8 +1946,10 @@ table.x_table_com td {
 
 .footer-links dl {
     display: inline-block;
-    width: 120px;
-    margin: 0 10px;
+    /* width: 120px; */
+    width: 115px;
+    /* margin: 0 10px; */
+    margin: 0 15px 0 0;
     vertical-align: top;
     *display: inline;
     *zoom: 1;
@@ -1927,7 +1959,8 @@ table.x_table_com td {
     line-height: 1.7;
     text-align: left;
     font-weight: bold;
-    font-size: 14px;
+    /* font-size: 14px; */
+    font-size: 17px;
 }
 
 .footer-links dd {
@@ -1937,21 +1970,44 @@ table.x_table_com td {
 }
 
 .footer-links dd a {
-    color: #666;
+    /* color: #666; */
+    color: #fff;
+    font-size: 14px;
 }
 
 .footer-links dd a:hover {
     color: #be0a00;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .footer-links {
     border-bottom: #eee 1px solid;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-
+.footer-links-imgs {
+    display: inline-block;
+    width: 830px;
+    font-size: 0;
+    margin-top: 20px;
+}
+.footer-links-img {
+    width: 230px;
+    height: 80px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin-right: 35px;
+}
+.footer-links-img.footer-weixin {
+    background-image: url("../images/footer/229X78px微信公众号标签.png");
+}
+.footer-links-img.footer-app {
+    background-image: url("../images/footer/229X78px手机端标签.png");
+}
+.footer-links-img.footer-kefu {
+    background-image: url("../images/footer/229X78px客服标签.png");
+}
 /*评价星星*/
 
 .big-star,
