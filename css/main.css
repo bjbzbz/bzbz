@@ -1,5 +1,8 @@
 img {
-    vertical-align: top
+    vertical-align: top;
+    max-width: 100%;
+    max-height: 90%;
+    vertical-align: middle;
 }
 
 .ml10 {
@@ -181,6 +184,7 @@ img {
     color: #1573b3;
     line-height: 28px;
 }
+
 .no-login .clr-999 {
     color: #aaa;
 }
@@ -313,20 +317,20 @@ img {
     border: 1px solid #eee;
     border-color: #1573b3;
 }
-.is-news .news-wrap {
-    
-}
+
+.is-news .news-wrap {}
 
 .is-news .news-type {
     display: inline-block;
-    
 }
+
 .is-news .news-tabs {
     width: 253px;
     height: 50px;
     line-height: 50px;
     position: relative;
 }
+
 .is-news .news-tabs .news-tab {
     font-size: 14px;
     font-weight: bold;
@@ -338,16 +342,20 @@ img {
     position: absolute;
     cursor: pointer;
 }
+
 .is-news .news-tabs .news-tab.zixun {
     left: 0;
 }
+
 .is-news .news-tabs .news-tab.gonggao {
     right: 0;
 }
+
 .is-news .news-tabs .news-tab.on {
     background: #fff;
     color: #1573b3;
 }
+
 .is-news .news-panels {
     padding-top: 9px;
     width: 253px;
@@ -356,25 +364,30 @@ img {
     top: 50px;
     left: 0;
 }
+
 .is-news .news-panels .news-panel {
     width: 100%;
     height: 100%;
     display: none;
 }
+
 .is-news .news-panels .news-panel.on {
     display: block;
 }
+
 .is-news .message {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
+
 .is-news .message li {
     display: block;
     height: 35px;
     line-height: 35px;
     width: 100%;
 }
+
 .is-news .message .message-word {
     display: inline-block;
     overflow: hidden;
@@ -382,23 +395,28 @@ img {
     white-space: nowrap;
     font-size: 13px;
 }
+
 .is-news .message .message-body {
     width: 196px;
     padding: 0 5px;
 }
+
 .is-news .message .message-time {
     width: 40px;
 }
+
 .is-news .message-more {
     height: 30px;
     line-height: 30px;
     text-align: right;
     padding-right: 10px;
 }
+
 .is-news .message-more a {
     color: #888;
     font-size: 13px;
 }
+
 .is-news dt {
     padding: 9px;
     border-bottom: 1px dotted #ccc;
@@ -642,10 +660,12 @@ img {
 .f-item-r {
     float: left
 }
+
 .poster-right .f-item-l {
     float: right;
     margin: 10px 0 0 10px;
 }
+
 .f-item-l {
     /* width: 229px; */
     width: 275px;
@@ -700,8 +720,9 @@ img {
 .f-item-c {
     /* width: 684px */
     width: 900px;
-    height: 392px;
+    height: 412px;
     margin-top: 10px;
+    overflow: hidden;
 }
 
 .f-item-c li {
@@ -710,7 +731,8 @@ img {
     width: 300px;
     /* margin: 10px 10px 0 0; */
     position: relative;
-    z-index: 1
+    z-index: 1;
+    margin-bottom: 10px;
 }
 
 .f-item-c li .item-fold {
@@ -743,6 +765,14 @@ img {
     left: 0;
     height: 100%;
     width: 100%;
+    text-align: center;
+}
+
+.f-item-c li .pic a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 196.5px;
 }
 
 .f-item-c li .txt {
@@ -756,8 +786,8 @@ img {
     box-sizing: border-box;
     line-height: 23px;
     background: rgba(255, 255, 255, 0.5);
-
 }
+
 .f-item-c li .item-fold:hover .txt {
     display: block;
 }

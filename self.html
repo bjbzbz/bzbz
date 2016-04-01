@@ -6,12 +6,13 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta charset="utf-8" />
-    <title> 包整包装 </title>
+    <title> 包整包装-自营商城 </title>
     <link rel="icon" href="${COPYRIGHT.faviconIcoPic}" mce_href="${COPYRIGHT.faviconIcoPic}" type="image/x-icon">
     <meta name="description" content=" 包整包装 ">
     <meta name="Keywords" content=" 包整包装 ">
     <link rel="stylesheet" href="css/common.css?v=20141021" />
     <link rel="stylesheet" href="css/main.css?v=20141021" />
+    <link rel="stylesheet" href="css/self.css">
     <script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20140820"></script>
     <script src="http://misc.360buyimg.com/jdf/1.0.0/unit/trimPath/1.0.0/trimPath.js?v=20140820" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js?v=20140820"></script>
@@ -85,6 +86,14 @@
             </div>
         </div>
     </div>
+    <div class="left-side-bar">
+      <ul>
+        <li data-index="1">Bopp</li>
+        <li data-index="2">美纹</li>
+        <li data-index="3">双面胶</li>
+        <li data-index="4">和纸</li>
+      </ul>
+    </div>
     <header>
         <script type="text/javascript">
         function getContextPath() {
@@ -111,9 +120,6 @@
                         </div>
                     </li>
                     <li><a href="买家中心.html" class="hover-color">我的包整包装</a></li>
-                    <!-- <li class="cut">|</li> -->
-                    <!-- <li><a href="http://www.yrj.com/category" target="_blank">商品分类</a></li> -->
-                    <!-- <li class="cut">|</li> -->
                     <li class="favorite menu">
                         <a href="http://buyer.yrj.com/index#url=/favor/fav-item" class="hover-color" target="_blank" ><i class="scj-icon"></i>收藏夹<b></b></a>
                         <div class="sub-bd ">
@@ -121,30 +127,8 @@
                             <a href="http://buyer.yrj.com/index#url=/favor/myfavshop?type=shop" class="hover-color" target="_blank">收藏的店铺</a>
                         </div>
                     </li>
-                    <!-- <li class="cut">|</li> -->
-                    <!-- <li class="cart menu" id="mini_cart_li">
-                        <a href="http://www.yrj.com/cart" target="_blank" id="mini_cart_link" style="line-height: 28px;display:inline-block"><i class="cart-icon"></i>进货车<span class="cart-num">0</span><b></b></a>
-                    </li> -->
-                    <!-- S 2015-12-15 移动商城 -->
-                    <!-- <li class="cut">|</li> -->
                     <li><a href="消息中心.html" class="hover-color">消息中心</a></li>
-                    <!-- <li class="qrcode menu">
-                        <a href="http://www.yrj.com/mobileMall/download" target="_blank"><i class="qr-icon"></i>移动商城<b></b></a>
-                        <div class="sub-bd ">
-                            <div class="qr-box brt-dot">
-                                <div class="text">微信扫一扫
-                                    <br>关注B2B微信商城</div>
-                                <div class="qr-img"><img src="images/qr/wx-select.jpg" width="136" height="136"></div>
-                            </div>
-                            <div class="qr-box">
-                                <div class="text">扫描二维码
-                                    <br>立即下载APP</div>
-                                <div class="qr-img"><img src="images/qr/app-select.png" width="136" height="136"></div>
-                            </div>
-                        </div>
-                    </li> -->
                     <li>客服热线：0591-88888888</li>
-                    <!-- E 2015-12-15 移动商城 -->
                 </ul>
             </div>
         </div>
@@ -162,12 +146,6 @@
             });
         });
         </script>
-        <!-- ths form is no longer used. huafeng 2015.11.04
-<form id="province_selection_Form" action="/provinceSelected" method="post">
-  <input type="hidden" name="provinceCode"/>
-  <input type="hidden" name="provinceName"/>
-</form>
--->
         <script type="text/javascript" src="js/home/provincechange.js?v=20140820"></script>
         <!-- header nav end -->
         <div class="w-header">
@@ -239,12 +217,13 @@
     <!-- nav begin -->
     <div id="nav">
         <div class="area">
-            <div class="categorys hover" onmouseover="$('#div_all_cats').show()" onmouseout="$('#div_all_cats').hide()">
+            <div class="categorys" onmouseover="$('#div_all_cats').show()" onmouseout="$('#div_all_cats').hide()">
             </div>
             <!-- S 采购频道入口 当前采购频道添加class on -->
             <div class="menu">
                 <ul>
-                    <li class="on tab-hover tab-on-disable"><a href="index.html">首页</a></li>
+                    <li class="tab-hover tab-on-disable"><a href="index.html">首页</a></li>
+                    <!-- 去掉on -->
                     <li class="tab-hover"><a href="self.html"><span class="tab-icon tab-hot">自营商城</span></a></li>
                     <li class="tab-hover"><a href="#dingzhi.html"><span class="tab-icon tab-new">定制商品</span></a></li>
                     <!-- 暂时不开通半成品功能 -->
@@ -283,173 +262,10 @@
     </script>
     <div id="content" class="area cl">
         <!-- S banner -->
-        <div class="main-area cl">
-            <div class="banner">
-                <div id="main-slider" class="main-slider">
-                    <div class="hd">
-                        <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                        </ul>
-                    </div>
-                    <div class="bd">
-                        <ul>
-                            <li>
-                                <a href="/count/adclick?url=http://www.yrj.com/" clstag="pageclick|keycount|201601052|37" target="_blank"><img alt="集团推广" title="集团推广" src="http://storage.jd.com/b2b.jcloud.jd.com/68278aaa-6773-422a-b53c-dbf6e59e24c4.jpg" width="740" height="470" /></a>
-                            </li>
-                            <li>
-                                <a href="/count/adclick?url=http://www.yrj.com/" clstag="pageclick|keycount|201601052|38" target="_blank"><img alt="集团理念" title="集团理念" src="http://storage.jd.com/b2b.jcloud.jd.com/14522a22-1ecf-4fb8-be5d-d1e1a676e352.jpg" width="740" height="470" /></a>
-                            </li>
-                            <li>
-                                <a href="/count/adclick?url=" clstag="pageclick|keycount|201601052|39" target="_blank"><img alt="b2b烧钱" title="b2b烧钱" src="http://storage.jd.com/b2b.jcloud.jd.com/083ce1cf-76dc-4a03-b609-a5c841b089d0.jpg" width="740" height="470" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="info-side">  
-                <!-- <div class="is-news">
-                    <dl>
-                        <dt>公告</dt>
-                        <dd class="first" clstag="pageclick|keycount|201601052|31">
-                            <a href="/notice/noticeinfo/1000159" target="_blank">&#20013;&#22269;&#20809;&#23398;&#33180;&#20445;&#25252;&#33180;&#20135;&#19994;&#30427;&#20250;</a>
-                        </dd>
-                        <dd clstag="pageclick|keycount|201601052|33">
-                            <a href="/notice/noticeinfo/1000158" target="_blank">&#24120;&#29992;&#26222;&#36890;&#33014;&#24102;&#30340;&#20998;&#31867;&#21644;&#22522;&#26412;&#36136;&#37327;&#35201;...</a>
-                        </dd>
-                        <dd clstag="pageclick|keycount|201601052|36">
-                            <a href="/notice/noticeinfo/1000157" target="_blank">&#27700;&#24615;&#33014;&#31896;&#26448;&#26009;&#24212;&#29992;&#20110;&#36719;&#21253;&#35013;&#19994;&#20248;&#21183;...</a>
-                        </dd>
-                        <dd>
-                            <a href="/notice/noticeinfo/1000156" target="_blank">&#23553;&#31665;&#29992;&#29275;&#30382;&#32440;&#33014;&#24102;&#30340;&#31181;&#31867;&#21450;&#27010;&#36848;</a>
-                        </dd>
-                        <dd>
-                            <a href="/notice/noticeinfo/1000155" target="_blank">2016 &#31532;12&#23626;&#19978;&#28023;&#22269;&#38469;&#33014;&#31896;...</a>
-                        </dd>
-                        <dd>
-                            <a href="/notice/noticeinfo/1000154" target="_blank">&#20013;&#22269;&#20809;&#23398;&#33180;&#20445;&#25252;&#33180;&#20135;&#19994;&#30427;&#20250;</a>
-                        </dd>
-                    </dl>
-                    <a href="http://www.yrj.com/notice/" class="more" clstag="pageclick|keycount|201601052|30" target="_blank">更多></a>
-                </div> -->
-                <div class="is-news">
-                  <ul class="news-tabs">
-                    <li class="news-tab zixun on" data-klass="zixun">行业资讯</li>
-                    <li class="news-tab gonggao" data-klass="gonggao">公 告</li>
-                  </ul>
-                  <ul class="news-panels">
-                    <li class="news-panel zixun on">
-                      <ul class="message">
-                        <li>
-                          <a href="" class="message-word message-body">包装市场需求</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#zixun/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                      </ul>
-                      <div class="message-more">
-                        <a href="#zixun.html">查看更多>></a>
-                      </div>
-                    </li>
-                    <li class="news-panel gonggao">
-                      <ul class="message">
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">这是公告包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                        <li>
-                          <a href="#gonggao/id/xx" class="message-word message-body">包装市场需求转变不断 包装机械面临挑战</a>
-                          <span class="message-word message-time">03-24</span>
-                        </li>
-                      </ul>
-                      <div class="message-more">
-                        <a href="#zixun.html">查看更多>></a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <script>
-                  $('.news-tabs').on('mouseover', '.news-tab', function(e) {
-                    var klass = $(this).attr('data-klass');
-                    $('.news-tabs').find('.on').removeClass('on');
-                    $('.news-panels').find('.on').removeClass('on');
-                    $(this).addClass('on');
-                    $('.news-panels').find('.' + klass).addClass('on');
-                  });
-                </script>
-                <div class="is-user" clstag="pageclick|keycount|201601052|29">
-                    <!-- 未登录 -->
-                    <div class="no-login">
-                        <div class="top">
-                            <i></i>
-                            <p class="fw-b">您好！欢迎来到包整包装网！</p>
-                            <p class="clr-999">您还未登录哦~</p>
-                        </div>
-                        <div class="bottom">
-                            <a href="http://passport.yrj.com/login" class="l-btn">登录</a>
-                            <a href="http://passport.yrj.com/register" class="l-btn ml7">注册</a>
-                        </div>
-                    </div>
-                    <!-- <div class="ft">
-                        <div class="link1"><a href="http://www.yrj.com/help?id=112&type=1" target="_blank"><i></i>&#36141;&#29289;&#24341;&#23548;</a></div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
+        <!-- 删除banner main-area cl  -->
         <!-- E banner -->
         <!-- S 商城精选 -->
-        <div class="showcase" id="div_mall_jingxuan">
+        <!-- <div class="showcase" id="div_mall_jingxuan">
             <div class="hd">
             </div>
             <div class="bd">
@@ -513,7 +329,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!-- E 商城精选 -->
         <div id="floors-list" class="floor-list">
             <script type="text/javascript">
@@ -524,55 +340,15 @@
             <!-- S 1F -->
             <div class="floor-item floor-item1" data-fid="0" clstag="pageclick|keycount|201601052|53">
                 <div class="hd">
-                    <h2><a href="javascript:void(0)"><i></i>限时特惠</a></h2>
+                    <h2><a href="javascript:void(0)">Bopp</a></h2>
                     <div class="floor-nav">
                         <ul class="floor-nav-list">
-                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                            <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                            <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">纤维胶带</a></li>
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">更多>></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="bd cl">
-                    <div class="f-item-l">
-                        <div class="img">
-                            <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
-                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/5a58b177-a4f3-45bc-a97d-a9887ec52364.png" width="229" height="333">
-                           <!--      <span class="btn">
-                        立即抢购>
-                    </span> -->
-                            </a>
-                        </div>
-                        <!-- <div class="link">
-                            <ul>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">透明胶带</a></li>
-                            </ul>
-                        </div> -->
-                    </div>
-                    <div class="f-item-c">
+                    <div class="f-item-c" style="width: 100%">
                         <ul>
                             <li>
                                 <div class="item-fold" data-itemid="${innerItem.itemId}">
@@ -634,82 +410,373 @@
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
-                    <!-- <div class="f-item-r">
-                        <div class="rank">
-                            <div class="rank-hd">
-                                <span>排行榜</span>
-                                <ul class="rank-tab">
-                                    <li id="rankA1_1000792" onclick="setTab(1, 1000792)" class="hover">热销</li>
-                                    <li id="rankA2_1000792" onclick="setTab(2, 1000792)" class="">好评</li>
-                                </ul>
-                            </div>
-                            <div class="rank-bd">
-                                <div id="con-rankA-1-1000792" class="con-list" style="display:block;">
-                                    <ul id="ul_floor_rank_hot_1000792" value="1000792">
-                                    </ul>
-                                </div>
-                                <div id="con-rankA-2-1000792" class="con-list" style="display:none;">
-                                    <ul id="ul_floor_rank_evaluate_1000792" value="1000792">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
+                <div class="collapse">展开</div>
             </div>
             <!-- E  1F} -->
             <!-- S 2F -->
             <div class="floor-item floor-item2" data-fid="1" clstag="pageclick|keycount|201601052|53">
                 <div class="hd">
-                    <h2><a href="javascript:void(0)"><i></i>新年大促</a></h2>
+                    <h2><a href="javascript:void(0)">美纹</a></h2>
                     <div class="floor-nav">
                         <ul class="floor-nav-list">
-                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">更多>></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="bd cl poster-right">
-                    <div class="f-item-l">
-                        <div class="img">
-                            <a href="http://www.yrj.com/itemlist/1000792" target="_blank">
-                                <img src="http://storage.jd.com/b2b.jcloud.jd.com/138e8edb-23c8-4afc-aec5-f4122939ed91.png" width="229" height="333">
-                           <!--      <span class="btn">
-                        立即抢购>
-                    </span> -->
-                            </a>
-                        </div>
-                        <!-- <div class="link">
-                            <ul>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                                <li><a href="http://www.yrj.com/itemlist/1000792" target="_blank">彩色胶带</a></li>
-                            </ul>
-                        </div> -->
+                    <div class="f-item-c" style="width: 100%;">
+                        <ul>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/243f0bc3-e9e5-4562-b4b3-f4787426546d.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/243f0bc3-e9e5-4562-b4b3-f4787426546d.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/243f0bc3-e9e5-4562-b4b3-f4787426546d.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/62c2e9b0-26e7-4b99-b971-d65392945f41.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/8f2b75db-e82f-45fd-9d43-4c064d364dde.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/786ef345-6bb5-4f0a-93b4-4ffb40a2c6a2.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/1107df5b-1e5d-40eb-a082-c7bf6fe06b20.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="f-item-c">
+                </div>
+                <div class="collapse">展开</div>
+            </div>
+            <!-- E  2F} -->
+            <!-- S 3F -->
+            <div class="floor-item floor-item3" data-fid="0" clstag="pageclick|keycount|201601052|53">
+                <div class="hd">
+                    <h2><a href="javascript:void(0)">双面胶</a></h2>
+                    <div class="floor-nav">
+                        <ul class="floor-nav-list">
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">更多>></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bd cl">
+                    <div class="f-item-c" style="width: 100%;">
+                        <ul>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/5cff9fcf-d82c-4cdb-bebe-1ef348517745.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/bbc662ff-9d10-41ee-9a9c-935de891217e.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/8636db95-2538-41cc-ac90-48447129f344.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/6c651da1-956b-4659-b918-b8bdfe682d19.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/1c74d8cb-0316-48bd-b0db-2f674df7d089.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/88629a9f-cded-42d6-a172-b6784f083655.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">斯图 彩色胶带 封箱胶带 胶纸胶布胶带 胶条 足米 4.8厘</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapse">展开</div>
+            </div>
+            <!-- E  3F} -->
+            <!-- S 4F -->
+            <div class="floor-item floor-item4" data-fid="1" clstag="pageclick|keycount|201601052|53">
+                <div class="hd">
+                    <h2><a href="javascript:void(0)">和纸</a></h2>
+                    <div class="floor-nav">
+                        <ul class="floor-nav-list">
+                            <li class="first"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">更多>></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bd cl poster-right">
+                    <div class="f-item-c" style="width: 100%;">
                         <ul>
                             <li>
                                 <div class="item-fold" data-itemid="${innerItem.itemId}">
@@ -771,32 +838,32 @@
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-fold" data-itemid="${innerItem.itemId}">
+                                    <div class="pic">
+                                        <a href="http://www.yrj.com/itemlist/1000792" target="_blank"><img src="http://storage.jd.com/b2b.jcloud.jd.com/3c250141-2aca-4196-a0fd-b8e24d1c5b34.png" width="216" height="216"></a>
+                                    </div>
+                                    <div class="txt">
+                                        <p class="tt hot"><a href="http://www.yrj.com/itemlist/1000792" target="_blank">北极熊（polar bear）和纸胶带st-158手帐卡通装</a><i></i></p>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                    <!-- <div class="f-item-r">
-                        <div class="rank">
-                            <div class="rank-hd">
-                                <span>排行榜</span>
-                                <ul class="rank-tab">
-                                    <li id="rankA1_1000793" onclick="setTab(1, 1000793)" class="hover">热销</li>
-                                    <li id="rankA2_1000793" onclick="setTab(2, 1000793)" class="">好评</li>
-                                </ul>
-                            </div>
-                            <div class="rank-bd">
-                                <div id="con-rankA-1-1000793" class="con-list" style="display:block;">
-                                    <ul id="ul_floor_rank_hot_1000793" value="1000793">
-                                    </ul>
-                                </div>
-                                <div id="con-rankA-2-1000793" class="con-list" style="display:none;">
-                                    <ul id="ul_floor_rank_evaluate_1000793" value="1000793">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
+                <div class="collapse">展开</div>
             </div>
-            <!-- E  2F} -->
+            <!-- E  4F} -->
             <script type="text/javascript">
             atemp = ",1:'限时特惠',2:'新年大促'";
             var itemIds = "";
@@ -850,7 +917,7 @@
             </script>
         </div>
         <input type="hidden" id="hid_PlatformVersion" value="1" />
-        <script type="text/javascript" src="http://www.yrj.com/js/home/mall-home.js"></script>
+        <script type="text/javascript" src="http://www.yrj.com/js/home/mall-self.js"></script>
         <!-- 如果未登录则去取一下uuid -->
         <!-- content begin -->
         <!-- footer begin -->
@@ -940,6 +1007,35 @@
         };
         </script>
         <!-- footer begin -->
+        <script>
+          $('.collapse').on('click', function() {
+            var $parent = $(this).parents('.floor-item');
+            var $wrapper = $parent.find('.f-item-c');
+            var length = $wrapper.find('li').length;
+            var singleHeight = 206.5;
+            var rows = Math.ceil(length / 4);
+            var height = singleHeight * rows;
+            var offset = $parent.offset();
+            $('.f-item-c').height(singleHeight * 2);
+            $('.collapse').text('展开');
+            if ($(this).hasClass('on')) {
+              $(this).removeClass('on');
+              $(this).text('展开');
+              $(document).scrollTop(offset.top);
+            } else {
+              $(this).addClass('on');
+              $wrapper.animate({'height': singleHeight + 'px'}, 200, function() {
+                $wrapper.animate({height: height + 'px'}, 600);  
+              });
+              $(this).text('收起'); 
+            }
+          });
+          $('.left-side-bar li').on('click', function() {
+            var index = $(this).data('index');
+            var offset = $('.floor-item' + index).offset();
+            $(document).scrollTop(offset.top);
+          });
+        </script>
 </body>
 
 </html>
