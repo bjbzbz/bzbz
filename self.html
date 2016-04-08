@@ -1021,7 +1021,6 @@
             if ($(this).hasClass('on')) {
               $(this).removeClass('on');
               $(this).text('展开');
-              $(document).scrollTop(offset.top);
             } else {
               $(this).addClass('on');
               $wrapper.animate({'height': singleHeight + 'px'}, 200, function() {
@@ -1029,6 +1028,7 @@
               });
               $(this).text('收起'); 
             }
+            $(document).scrollTop(offset.top);
           });
           $('.left-side-bar li').on('click', function() {
             var index = $(this).data('index');

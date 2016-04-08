@@ -1,8 +1,10 @@
 img {
     vertical-align: top;
+    vertical-align: middle;
+}
+.pic img {
     max-width: 100%;
     max-height: 90%;
-    vertical-align: middle;
 }
 
 .ml10 {
