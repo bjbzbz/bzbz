@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>比价功能</title>
+  <style>
+  .dialog {
+    width: 500px;
+    height: 400px;
+    border: 1px solid #aaa;
+    padding: 20px;
+    position: relative;
+  }
+  .header {
+    text-align: center;
+  }
+  .options {
+    text-align: right;
+  }
+  .content {
+    margin-top: 20px;
+    height: 315px;
+    overflow: auto;
+  }
+  table {
+    width: 100%;
+  }
+  .footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="dialog">
+    <div class="header">
+      <span class="title">比价清单-价格排序(价格前10)</span>
+      <div class="close"></div>
+    </div>
+    <div class="options">
+      <select class="area">
+        <option value="全国">全国</option>
+        <option value="本区域">本区域</option>
+      </select>
+      <select class="count-num">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+      </select>
+    </div>
+    <div id="content" class="content">
+      <table border="1">
+        <tr>
+          <th>序号</th>
+          <th>产商</th>
+          <th>地址</th>
+          <th>及时到货率(%)</th>
+          <th>产能</th>
+          <th>距离</th>
+          <th>价格</th>
+        </tr>
+      </table>
+    </div>
+    <div class="footer">
+      <button class="sort-jiage">价格排序</button>
+      <button class="sort-juli">距离排序</button>
+    </div>
+    
+  </div>
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20140820"></script>
+  <script>
+  var createMockData = function() {
+    var baseName = '包整';
+    var dizhi = ['福建', '安徽', '上海', '北京'];
+    var mockData = [];
+    for (var i = 0; i < 100; i++) {
+      var data = {};
+      var index = i + 1;
+      data.chanshang = baseName + index;
+      data.id = index;
+      data.dizhi = dizhi[i % 4];
+      data.channeng = 80;
+      data.jishi = 100 - i;
+      data.jiage = (6000 - Math.random() * 1000).toFixed(2);
+      data.juli = 20 + i;
+      mockData.push(data);
+    }
+    return mockData;
+  };
+  var mock = createMockData();
+  var userDizhi = '北京';
+  var $table = $($('#content').find('table')[0]);
+  var selectArea = false;
+  var selectNum = 10;
+  var currentData = [];
+  var $title = $('.header .title');
+
+  var appendData = function() {
+    for (var i = 0, len = currentData.length; i < len; i++) {
+      var data = currentData[i];
+      var str = $('<tr class="item-tr"></tr>');
+      str.append('<td>' + (i + 1) + '</td>');
+      str.append('<td><a href="http://www.jd.com" target="_blank">' + data.chanshang + '</a></td>');
+      str.append('<td>' + data.dizhi + '</td>');
+      str.append('<td>' + data.jishi + '</td>');
+      str.append('<td>' + data.channeng + '</td>');
+      str.append('<td>' + data.juli + '</td>');
+      str.append('<td>' + data.jiage + '</td>');
+      //var td = str.outerHTML();
+      $table.append(str);
+    }
+  };
+  var sortData = function() {
+    currentData = [];
+    $table.find('.item-tr').remove();
+    var selectData = [];
+    if (selectArea) {
+      for (var i = 0, len = mock.length; i < len; i++) {
+        if (mock[i].dizhi === '北京') {
+          selectData.push(mock[i]);
+        }  
+      }
+    } else {
+      selectData = mock;
+    }
+    selectData = selectData.sort(function(a, b) {
+      return a.jiage - b.jiage;
+    });
+    for (var i = 0, len = selectData.length; i < selectNum && i < len; i++) {
+      currentData.push(selectData[i]);
+    }
+    appendData();
+  };
+  sortData();
+  $('.options .area').on('change', function(data) {
+    if (data.currentTarget.value === '本区域') {
+      selectArea = true;
+      sortData();
+    } else {
+      selectArea = false;
+      sortData();
+    }
+  });
+  $('.options .count-num').on('change', function(data) {
+    var num = +data.currentTarget.value;
+    selectNum = num;
+    sortData();
+    $title.text('比价清单-价格排序(价格前' + selectNum + ')');
+  });
+  $('.sort-juli').on('click', function() {
+    $table.find('.item-tr').remove();
+    currentData = currentData.sort(function(a, b) {
+      return a.juli - b.juli;
+    });
+    appendData();
+    $title.text('比价清单-距离排序(价格前' + selectNum + ')');
+  });
+  $('.sort-jiage').on('click', function() {
+    $table.find('.item-tr').remove();
+    currentData = currentData.sort(function(a, b) {
+      return a.jiage - b.jiage;
+    });
+    appendData();
+    $title.text('比价清单-价格排序(价格前' + selectNum + ')');
+  });
+  </script>
+</body>
+
+</html>
