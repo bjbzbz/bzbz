@@ -37,7 +37,7 @@
 <body>
   <div class="dialog">
     <div class="header">
-      <span class="title">比价清单-价格排序(价格前10)</span>
+      <span class="title">(xxx)比价清单-价格排序(价格前10)</span>
       <div class="close"></div>
     </div>
     <div class="options">
@@ -149,7 +149,7 @@
     var num = +data.currentTarget.value;
     selectNum = num;
     sortData();
-    $title.text('比价清单-价格排序(价格前' + selectNum + ')');
+    $title.text('(xxx)比价清单-价格排序(价格前' + selectNum + ')');
   });
   $('.sort-juli').on('click', function() {
     $table.find('.item-tr').remove();
@@ -157,7 +157,7 @@
       return a.juli - b.juli;
     });
     appendData();
-    $title.text('比价清单-距离排序(价格前' + selectNum + ')');
+    $title.text('(xxx)比价清单-距离排序(价格前' + selectNum + ')');
   });
   $('.sort-jiage').on('click', function() {
     $table.find('.item-tr').remove();
@@ -165,7 +165,7 @@
       return a.jiage - b.jiage;
     });
     appendData();
-    $title.text('比价清单-价格排序(价格前' + selectNum + ')');
+    $title.text('(xxx)比价清单-价格排序(价格前' + selectNum + ')');
   });
   </script>
 </body>
