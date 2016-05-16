@@ -37,7 +37,7 @@
 <body>
   <div class="dialog">
     <div class="header">
-      <span class="title">(xxx)比价清单-价格排序(价格前10)</span>
+      <span class="title">(xxx)清单</span>
       <div class="close"></div>
     </div>
     <div class="options">
@@ -61,13 +61,13 @@
           <th>及时到货率(%)</th>
           <th>产能</th>
           <th>距离</th>
-          <th>价格</th>
+          <!-- <th>价格</th> -->
         </tr>
       </table>
     </div>
     <div class="footer">
-      <button class="sort-jiage">价格排序</button>
-      <button class="sort-juli">距离排序</button>
+      <!-- <button class="sort-juli">距离排序</button> -->
+      <div class="show"></div>
     </div>
     
   </div>
@@ -104,12 +104,12 @@
       var data = currentData[i];
       var str = $('<tr class="item-tr"></tr>');
       str.append('<td>' + (i + 1) + '</td>');
-      str.append('<td><a href="http://www.jd.com" target="_blank">' + data.chanshang + '</a></td>');
+      str.append('<td><a class="links" href="http://www.jd.com" target="_blank" data-jiage="' + data.jiage + '">' + data.chanshang + '</a></td>');
       str.append('<td>' + data.dizhi + '</td>');
       str.append('<td>' + data.jishi + '</td>');
       str.append('<td>' + data.channeng + '</td>');
       str.append('<td>' + data.juli + '</td>');
-      str.append('<td>' + data.jiage + '</td>');
+      // str.append('<td>' + data.jiage + '</td>');
       //var td = str.outerHTML();
       $table.append(str);
     }
@@ -135,38 +135,43 @@
     }
     appendData();
   };
+  var sortfunc = function() {
+    $table.find('.item-tr').remove();
+    currentData = currentData.sort(function(a, b) {
+      return a.juli - b.juli;
+    });
+    appendData();
+  };
   sortData();
+  sortfunc();
   $('.options .area').on('change', function(data) {
     if (data.currentTarget.value === '本区域') {
       selectArea = true;
-      sortData();
+      sortfunc();
     } else {
       selectArea = false;
-      sortData();
+      sortfunc();
     }
   });
   $('.options .count-num').on('change', function(data) {
     var num = +data.currentTarget.value;
     selectNum = num;
     sortData();
-    $title.text('(xxx)比价清单-价格排序(价格前' + selectNum + ')');
+    sortfunc();
   });
   $('.sort-juli').on('click', function() {
-    $table.find('.item-tr').remove();
-    currentData = currentData.sort(function(a, b) {
-      return a.juli - b.juli;
-    });
-    appendData();
-    $title.text('(xxx)比价清单-距离排序(价格前' + selectNum + ')');
+    sortfunc();
   });
   $('.sort-jiage').on('click', function() {
-    $table.find('.item-tr').remove();
-    currentData = currentData.sort(function(a, b) {
-      return a.jiage - b.jiage;
-    });
-    appendData();
-    $title.text('(xxx)比价清单-价格排序(价格前' + selectNum + ')');
+    sortfunc();
   });
+  $(document).on('hover', '.item-tr', function() {
+    var jiage = $(this).find('.links').attr('data-jiage');
+    var dian = $(this).find('.links').html();
+    console.log('..')
+    $('.show').html(dian + ':' + jiage + '元')
+  })
+  
   </script>
 </body>
 
