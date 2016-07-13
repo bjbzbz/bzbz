@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>商品货号映射</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="mock/mock.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+</head>
+<body>
+	<label class="b2b">
+		<span class="b2bname">自定义商品货号:</span>
+		<input type="text" class="b2bnum" placeholder="输入b2b系统中商品货号">
+		<button type="button" id="b2bsearch" class="b2bsearch">查找</button>
+		<button type="button" id="sale">在卖商品</button>
+	</label>
+	<div class="tip"></div>
+	<table width="600" border="1" style="text-align:center;">
+		<caption>b2b平台商品编码对应nc</caption>
+		<thead>
+			<tr>
+				<th>商品名称</th>
+				<th>商品型号</th>
+				<th>b2b自定义货号</th>
+				<th>nc对应编号</th>
+				<th>是否在售</th>
+			</tr>
+		</thead>
+		<tbody class="b2b-nc-tbody">
+
+		</tbody>
+	</table>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
