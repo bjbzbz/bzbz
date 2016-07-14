@@ -39,10 +39,20 @@ var globalData = {
 	//透明胶
 	"10101-1": {
 		"type": "",            //
-		"ncnum": "",           //nc中的编号
+		"ncnum": "<a class='search' data-b2bnum='10101-1'>查看</a>",           //nc中的编号
 		"name": "水性透明胶",  //产品名称
 		"b2bnum": "10101-1",    //b2b平台中的编号
-		"isinsale": "是"        //是否在售
+		"isinsale": "是",        //是否在售
+		"ncnums": [{
+			"name": "透明绿胶带",
+			"ncnum": "115"
+		}, {
+			"name": "透明黄胶带",
+			"ncnum": "114"
+		}, {
+			"name": "透明胶带",
+			"ncnum": "111"
+		}]
 	},
 	"10101-2": {
 		"type": "",            
@@ -54,7 +64,7 @@ var globalData = {
 	//印刷胶带
 	"10102-1": {
 		"type": "",            
-		"ncnum": "100",           
+		"ncnum": "",           
 		"name": "水性印刷胶带",  
 		"b2bnum": "10102-1",
 		"isinsale": "是"  
@@ -84,10 +94,20 @@ var globalData = {
 	//文具胶带
 	"10104-1": {
 		"type": "",        
-		"ncnum": "",         
+		"ncnum": "<a class='search' data-b2bnum='10104-1'>查看</a>",         
 		"name": "文具胶带",  
 		"b2bnum": "10104-1",
-		"isinsale": "是"   
+		"isinsale": "是",
+		"ncnums": [{
+			"name": "透明绿文具胶带",
+			"ncnum": "197"
+		}, {
+			"name": "透明黄文具胶带",
+			"ncnum": "183"
+		}, {
+			"name": "透明文具胶带",
+			"ncnum": "182"
+		}]
 	},
 
 	//双面胶
@@ -207,7 +227,7 @@ var globalData = {
 	//PE泡棉双面胶
 	"10202-1": {
 		"type": "2331",          
-		"ncnum": "",      
+		"ncnum": "2331",      
 		"name": "热熔PE泡棉双面胶", 
 		"b2bnum": "10202-1",
 		"isinsale": "是"  
