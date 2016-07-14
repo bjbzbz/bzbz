@@ -21,9 +21,11 @@ var createTR2 = function(obj) {
 		return '';
 	}
 	var name = obj.name,
-		ncnum = obj.ncnum;
+		ncnum = obj.ncnum,
+		background = obj.rgb || 'rgb(255,255,255)',
+		color = obj.color || 'rgb(0,0,0)';
 	return '<tr>' +
-				'<td>' + name +'</td>' +
+				'<td style="background:' + background + ';color:' + color + ';">' + name +'</td>' +
 				'<td>' + ncnum +'</td>' +
 			'</tr>';
 };
@@ -73,7 +75,9 @@ $(document).ready(function() {
 		var moreTable = $('.more-b2b-nc');
 		var str = '';
 		$.each(data.ncnums, function(key, value) {
-			str += createTR2(data.ncnums[key]);
+			if (value.isinsale !== '否') {
+				str += createTR2(value);
+			}
 		});
 		$tableBody.html(createTR(data));
 		moreTable.html(str);
