@@ -802,7 +802,7 @@ var globalData = {
 		"ncnum": "",      
 		"name": "美纹纸遮蔽膜胶带", 
 		"b2bnum": "10306-1",
-		"isinsale": ""  
+		"isinsale": "是"  
 	},
 
 	//牛皮纸胶带
@@ -1003,7 +1003,7 @@ var globalData = {
 		"ncnum": "",      
 		"name": "和纸遮蔽膜胶带", 
 		"b2bnum": "10604-1",
-		"isinsale": ""  
+		"isinsale": "是"  
 	},
 
 	//特种胶带
