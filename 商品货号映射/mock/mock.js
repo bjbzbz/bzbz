@@ -36,7 +36,11 @@ var globalTypeCount = {
 	//膜材
 	'20101': 1,
 	'20102': 1,
-	'20103': 1
+	'20103': 1,
+
+	//打包带
+	'30101': 1,
+	'30102': 1,
 }
 var globalData = {
 	//BOPP
@@ -1097,6 +1101,22 @@ var globalData = {
 		"name": "机用缠绕膜", 
 		"b2bnum": "20102-1",
 		"isinsale": "是"  
+	},
+
+	//打包带
+	"30101-1": {
+		"type": "",
+		"ncnum": "",      
+		"name": "PP打包带", 
+		"b2bnum": "30101-1",
+		"isinsale": "是"
+	},
+	"30102-1": {
+		"type": "",
+		"ncnum": "",      
+		"name": "PET打包带", 
+		"b2bnum": "30102-1",
+		"isinsale": "是"
 	},
 
 }
