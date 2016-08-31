@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chartset="utf-8">
+	<title>教你买纸箱</title>
+	<script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<select name="waleng">
+		<option value="1">单瓦楞</option>
+		<option value="2">双瓦楞</option>
+		<option value="3">三瓦楞</option>
+	</select>
+	<select name="zhizhi">
+		<option value="b">1类b</option>
+		<option value="c" selected="selected">2类c</option>
+	</select>
+	<fieldset>
+	    <legend>纸箱属性</legend>
+	    长(mm)：<input type="text" name="depth" class="carton-attr" />
+	    宽(mm)：<input type="text" name="width" class="carton-attr" />
+	    高(mm)：<input type="text" name="height" class="carton-attr" />
+	</fieldset>
+	<fieldset>
+	    <legend>使用场景</legend>
+	    内装物最大重量(kg)：<input type="text" name="max-weight" class="carton-using" />
+	    堆码层数：<input type="text" name="count" class="carton-using" />
+	    贮藏时间(天)：<input type="text" name="days" class="carton-using" />
+	</fieldset>
+	<div class="carton-choose">
+		
+	</div>
+	<button type="button" id="getData">获取数据</button>
+	<script>
+		// 国标参数
+		var cartonAttr1 = { //1类b
+			//单瓦楞
+			"S-1.1": {
+				"max-weight": 5,
+				"max-size": 700,
+				"belong": "1类b"
+			},
+			"S-1.2": {
+				"max-weight": 10,
+				"max-size": 1000,
+				"belong": "1类b"
+			},
+			"S-1.3": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "1类b"
+			},
+			"S-1.4": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "1类b"
+			},
+			"S-1.5": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "1类b"
+			},
+			//双瓦楞
+			"D-1.1": {
+				"max-weight": 15,
+				"max-size": 1000,
+				"belong": "1类b"
+			},
+			"D-1.2": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "1类b"
+			},
+			"D-1.3": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "1类b"
+			},
+			"D-1.4": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "1类b"
+			},
+			"D-1.5": {
+				"max-weight": 55,
+				"max-size": 2500,
+				"belong": "1类b"
+			}
+		};
+		var cartonAttr2 = { // 2类c
+			//单瓦楞
+			"S-2.1": {
+				"max-weight": 5,
+				"max-size": 700,
+				"belong": "2类c",
+				"naipo": 450,
+				"bianyaqiangdu": 2
+			},
+			"S-2.2": {
+				"max-weight": 10,
+				"max-size": 1000,
+				"belong": "2类c",
+				"naipo": 600,
+				"bianyaqiangdu": 2.5
+			},
+			"S-2.3": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "2类c",
+				"naipo": 750,
+				"bianyaqiangdu": 3
+			},
+			"S-2.4": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "2类c",
+				"naipo": 850,
+				"bianyaqiangdu": 4.5
+			},
+			"S-2.5": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "2类c",
+				"naipo": 1000,
+				"bianyaqiangdu": 4.5
+			},
+			//双瓦楞
+			"D-2.1": {
+				"max-weight": 15,
+				"max-size": 1000,
+				"belong": "2类c",
+				"naipo": 600,
+				"bianyaqiangdu": 2.8
+			},
+			"D-2.2": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "2类c",
+				"naipo": 800,
+				"bianyaqiangdu": 3.2
+			},
+			"D-2.3": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "2类c",
+				"naipo": 1100,
+				"bianyaqiangdu": 4.5
+			},
+			"D-2.4": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "2类c",
+				"naipo": 1200,
+				"bianyaqiangdu": 6
+			},
+			"D-2.5": {
+				"max-weight": 55,
+				"max-size": 2500,
+				"belong": "2类c",
+				"naipo": 1300,
+				"bianyaqiangdu": 6.5
+			}
+		};
+		var cartonAttr = cartonAttr2;
+		var naipoGlobal = [{
+			qiangdu: 3,
+			caizhi: {
+				danwa: ["国产B33", "国产C33", "国产B9C"],
+				shuangwa: ["国产C=3"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 3.5,
+			caizhi: {
+				danwa: ["国产C3C", "国产B9C"],
+				shuangwa: [],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 4,
+			caizhi: {
+				danwa: ["国产B3C", "国产B9B", "国产W9C"],
+				shuangwa: ["国产C=C"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 5,
+			caizhi: {
+				danwa: ["国产A3C", "国产B3B", "国产W3B", "国产A9B"],
+				shuangwa: ["国产B=C", "国产W=C"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 5.5,
+			caizhi: {
+				danwa: ["国产W9W", "国产W9B"],
+				shuangwa: [],
+				sanwa: ["B#C"]
+			}
+		}, {
+			qiangdu: 6,
+			caizhi: {
+				danwa: ["国产A3B", "国产A9A"],
+				shuangwa: ["国产B=B", "国产W=B", "国产W=W"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 6.5,
+			caizhi: {
+				danwa: ["国产K3C", "国产W3A", "国产W9A"],
+				shuangwa: [],
+				sanwa: ["国产B#B"]
+			}
+		}, {
+			qiangdu: 7,
+			caizhi: {
+				danwa: ["国产A3A", "国产W3K", "美牛B3B"],
+				shuangwa: ["国产K=C", "国产A=B", "国产W=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 7.5,
+			caizhi: {
+				danwa: ["国产W9K"],
+				shuangwa: [],
+				sanwa: ["国产A#B"]
+			}
+		}, {
+			qiangdu: 8,
+			caizhi: {
+				danwa: ["国产K3B"],
+				shuangwa: ["国产A=A", "国产W=K"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 9,
+			caizhi: {
+				danwa: ["国产K3A", "美牛A3B"],
+				shuangwa: ["国产K=C", "美牛B=B"],
+				sanwa: ["国产A#A"]
+			}
+		}, {
+			qiangdu: 10,
+			caizhi: {
+				danwa: ["国产K3K"],
+				shuangwa: ["国产K=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 10.5,
+			caizhi: {
+				danwa: [],
+				shuangwa: [],
+				sanwa: ["国产K#A"]
+			}
+		}, {
+			qiangdu: 11,
+			caizhi: {
+				danwa: ["美牛A3A"],
+				shuangwa: ["国产K=K", "美牛A=B"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 12,
+			caizhi: {
+				danwa: ["美牛K3A"],
+				shuangwa: [],
+				sanwa: ["国产K#K", "美牛A#B"]
+			}
+		}, {
+			qiangdu: 14,
+			caizhi: {
+				danwa: [],
+				shuangwa: ["美牛A=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 16,
+			caizhi: {
+				danwa: ["美牛K3K"],
+				shuangwa: ["美牛K=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 17,
+			caizhi: {
+				danwa: [],
+				shuangwa: ["美牛K=K"],
+				sanwa: []
+			}
+		}];
+		var walengshuju = {
+			dan: {
+				a: {
+					wanglengchangshu: 8.36,
+					zhixiangchangshu: 1.1
+				},
+				b: {
+					wanglengchangshu: 5,
+					zhixiangchangshu: 1.27
+				},
+				c: {
+					wanglengchangshu: 8.36,
+					zhixiangchangshu: 1.27
+				}
+			},
+			shuang: {
+				aa: {
+					wanglengchangshu: 16.72,
+					zhixiangchangshu: 0.94
+				},
+				bb: {
+					wanglengchangshu: 10,
+					zhixiangchangshu: 1.08
+				},
+				cc: {
+					wanglengchangshu: 12.2,
+					zhixiangchangshu: 1.09
+				},
+				ab: {
+					wanglengchangshu: 13.36,
+					zhixiangchangshu: 1.01
+				},
+				ac: {
+					wanglengchangshu: 14.46,
+					zhixiangchangshu: 1.02
+				},
+				bc: {
+					wanglengchangshu: 11.1,
+					zhixiangchangshu: 1.08
+				}
+			},
+			san: {
+				bca: {
+					wanglengchangshu: 19.46,
+					zhixiangchangshu: 0.98
+				}
+			}
+		};
+		var walengcanshu = walengshuju.dan;
+		var wa = 'danwa';
+		var walengchangshu = {
+			b: 5,
+			c: 6.1,
+			a: 8.36,
+			bc: 11.1,
+			ba: 13.36,
+			ca: 14.46,
+			bca: 19.46
+		};
+		var zhixiangchangshu = {
+			b: 1.27,
+			c: 1.27,
+			a: 1.1,
+			bc: 1.08,
+			ba: 1.01,
+			ca: 1.02,
+			bca: 0.98
+		};
+		var userwaleng = 1;
+
+		var getUserData = function() {
+			var userDepth = $('input[name=depth]').val() / 1000,
+				userWidth = $('input[name=width]').val() / 1000,
+				userHeight = $('input[name=height]').val() / 1000,
+				userWeight = $('input[name=max-weight]').val(),
+				userCount = $('input[name=count]').val(),
+				userDays = $('input[name=days]').val();
+			return {
+				depth: userDepth,
+				width: userWidth,
+				height: userHeight,
+				weight: userWeight,
+				count: userCount,
+				days: userDays
+			};
+		};
+		var getAnQuanXiShu = function(days) {
+			//return 6.5
+			if (days <=30) {
+				return 1.6;
+			} else if (days <=100) {
+				return 1.65;
+			} else {
+				return 2.0
+			};
+		};
+		$('#getData').on('click', function() {
+			var data = getUserData();
+			var weight = data.weight;
+			var size = data.depth + data.width + data.height;
+			var choosezhi;
+			var caizhi;
+			$.each(cartonAttr, function(k, v) {
+				if (v["max-weight"] >= weight && v["max-size"] >= size) {
+					choosezhi = k;
+					return false;
+				}
+			});
+			if (!choosezhi) {
+				alert('没有符合的纸箱');
+				return;
+			}
+			var zhiban = cartonAttr[choosezhi];
+			var kangya = 9.81 * getAnQuanXiShu(data.days) * weight * ((data.count - 1) || 1);
+			$.each(walengcanshu, function(k, v) {
+				var zhixiangzhouchang = (data.depth + data.width)*200;
+				var walengchangshu4 = 4*v.wanglengchangshu/zhixiangzhouchang;
+				var erfensanci = Math.pow(walengchangshu4, 2/3);
+				var bianya2 = kangya/(erfensanci * zhixiangzhouchang * v.zhixiangchangshu);
+				console.log(bianya2);
+			});
+			var bianya = zhiban.bianyaqiangdu * 10;
+			var naipo = zhiban.naipo / 98.1;
+			$.each(naipoGlobal, function(k, v) {
+				if (v.qiangdu >= naipo && v.caizhi[wa].length) {
+					caizhi = v.caizhi[wa];
+					naipo = v.qiangdu;
+					return false;
+				}
+			});
+			$.each(walengcanshu, function(k, v) {
+				// var zhixiangzhouchang = ((data.depth + data.width)*200+4.5)/2.54;
+				var zhixiangzhouchang = (data.depth + data.width)*200;
+				var walengchangshu4 = 4*v.wanglengchangshu/zhixiangzhouchang;
+				var erfensanci = Math.pow(walengchangshu4, 2/3);
+				var kangya2 = bianya * erfensanci * zhixiangzhouchang * v.zhixiangchangshu;
+				if (kangya2 >= kangya) {
+					console.log(kangya2, k);
+				}
+				
+			});
+			
+			console.log(kangya, bianya, naipo, caizhi);
+		});
+		
+		$(document).on('change', 'select[name=waleng]', function() {
+			userwaleng = $(this).val();
+			if (userwaleng == 1) {
+				walengcanshu = walengshuju.dan;
+				wa = 'danwa';
+			} else if (userwaleng == 2) {
+				walengcanshu = walengshuju.shuang;
+				wa = 'shuangwa';
+			} else {
+				walengcanshu = walengshuju.san;
+				wa = 'sanwa';
+			}
+		});
+		$(document).on('change', 'select[name=zhizhi]', function() {
+			if ($(this).val() === 'b') {
+				cartonAttr = cartonAttr1;
+			} else {
+				cartonAttr = cartonAttr2;
+			}
+		});
+	</script>
+</body>
+</html>

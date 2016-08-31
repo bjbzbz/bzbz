@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chartset="utf-8">
+	<title>教你买纸箱</title>
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<style type="text/css" media="screen">
+		.table-div {
+			width: 180px;
+			display: inline-block;
+			margin: 5px;
+			border: 1px solid #aaa;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+		.table-div .jiansun {
+			display: block;
+			text-align: center;
+		}
+		.table-div.selected {
+			background: #357898;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<select name="waleng">
+		<option value="1">单瓦楞</option>
+		<option value="2">双瓦楞</option>
+		<option value="3">三瓦楞</option>
+	</select>
+	<select name="zhizhi">
+		<option value="b">1类b</option>
+		<option value="c" selected="selected">2类c</option>
+	</select>
+	<fieldset>
+	    <legend>纸箱属性</legend>
+	    长(mm)：<input type="text" name="depth" class="carton-attr" />
+	    宽(mm)：<input type="text" name="width" class="carton-attr" />
+	    高(mm)：<input type="text" name="height" class="carton-attr" />
+	</fieldset>
+	<fieldset>
+	    <legend>使用场景</legend>
+	    内装物最大重量(kg)：<input type="text" name="max-weight" class="carton-using" />
+	    堆码层数：<input type="text" name="count" class="carton-using" />
+	</fieldset>
+	<div class="anquanxishu">
+		我不知道安全系数: <input type="radio" name="anquanxishu" value="no" checked="selected">
+		</br>
+		我知道安全系数： <input type="radio" name="anquanxishu" value="yes">
+	</div>
+	<table border="1px" id="select-anquanxishu">
+		<caption>运输环境选择(确认安全系数)</caption>
+		<thead>
+			<tr>
+				<th>环境</th>
+				<th>参数</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>温湿环境</td>
+				<td>
+					<div class="table-div" data-xishu="0.1">
+						<span>装箱后从出厂到销售过程中，存储于干燥阴凉环境</span>
+						<span class="jiansun">(抗压强度减损率10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>装箱后通过陆路流通，但纸箱所处的温湿环境变化大</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.6">
+						<span>装箱后入货柜，走海运出口</span>
+						<span class="jiansun">(抗压强度减损率60%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>堆码时间</td>
+				<td>
+					<div class="table-div" data-xishu="0.15">
+						<span>堆码时间不超过1个月</span>
+						<span class="jiansun">(抗压强度减损率15%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>堆码1~2个月</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.4">
+						<span>堆码时间3个月以上</span>
+						<span class="jiansun">(抗压强度减损率40%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>堆放方法</td>
+				<td>
+					<div class="table-div" data-xishu="0.5">
+						<span>纸箱采用角对角平行式堆码</span>
+						<span class="jiansun">(抗压强度减损率5%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.2">
+						<span>纸箱堆放时不能箱角完全对齐，但堆放整理</span>
+						<span class="jiansun">(抗压强度减损率20%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>纸箱杂乱堆放</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>装卸流通情况</td>
+				<td>
+					<div class="table-div" data-xishu="0.1">
+						<span>流通过程中仅装卸一次，且装卸时很少受到撞击</span>
+						<span class="jiansun">(抗压强度减损率10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.2">
+						<span>虽经过多次装卸，但装卸时对纸箱撞击较少</span>
+						<span class="jiansun">(抗压强度减损率20%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.5">
+						<span>从工厂到超市需经过多次装卸，且运输装卸过程中常受撞击</span>
+						<span class="jiansun">(抗压强度减损率50%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>其他因素</td>
+				<td>
+					<div class="table-div" data-xishu="-0.1">
+						<span>湖料加入了防水耐潮的添加剂</span>
+						<span class="jiansun">(抗压强度减损率-10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.6">
+						<span>内装物本身为贵重易损物件，对纸箱的保护性要求较高</span>
+						<span class="jiansun">(抗压强度减损率60%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr class="summary">
+				<td>当前推荐安全系数</td>
+				<td class="summary-value">1</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div id="input-anquanxishu" style="display: none;">
+		请输入安全系数： <input type="text" name="input-anquanxishu" placeholder="请输入安全系数">
+	</div>
+
+	<div class="carton-choose">
+		
+	</div>
+	<button type="button" id="getData">获取数据</button>
+	<script>
+		// 国标参数
+		var cartonAttr1 = { //1类b
+			//单瓦楞
+			"S-1.1": {
+				"max-weight": 5,
+				"max-size": 700,
+				"belong": "1类b"
+			},
+			"S-1.2": {
+				"max-weight": 10,
+				"max-size": 1000,
+				"belong": "1类b"
+			},
+			"S-1.3": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "1类b"
+			},
+			"S-1.4": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "1类b"
+			},
+			"S-1.5": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "1类b"
+			},
+			//双瓦楞
+			"D-1.1": {
+				"max-weight": 15,
+				"max-size": 1000,
+				"belong": "1类b"
+			},
+			"D-1.2": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "1类b"
+			},
+			"D-1.3": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "1类b"
+			},
+			"D-1.4": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "1类b"
+			},
+			"D-1.5": {
+				"max-weight": 55,
+				"max-size": 2500,
+				"belong": "1类b"
+			}
+		};
+		var cartonAttr2 = { // 2类c
+			//单瓦楞
+			"S-2.1": {
+				"max-weight": 5,
+				"max-size": 700,
+				"belong": "2类c",
+				"naipo": 450,
+				"bianyaqiangdu": 2,
+				"lengshu": 1
+			},
+			"S-2.2": {
+				"max-weight": 10,
+				"max-size": 1000,
+				"belong": "2类c",
+				"naipo": 600,
+				"bianyaqiangdu": 2.5,
+				"lengshu": 1
+			},
+			"S-2.3": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "2类c",
+				"naipo": 750,
+				"bianyaqiangdu": 3,
+				"lengshu": 1
+			},
+			"S-2.4": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "2类c",
+				"naipo": 850,
+				"bianyaqiangdu": 3.5,
+				"lengshu": 1
+			},
+			"S-2.5": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "2类c",
+				"naipo": 1000,
+				"bianyaqiangdu": 4.5,
+				"lengshu": 1
+			},
+			//双瓦楞
+			"D-2.1": {
+				"max-weight": 15,
+				"max-size": 1000,
+				"belong": "2类c",
+				"naipo": 600,
+				"bianyaqiangdu": 2.8,
+				"lengshu": 2
+			},
+			"D-2.2": {
+				"max-weight": 20,
+				"max-size": 1400,
+				"belong": "2类c",
+				"naipo": 800,
+				"bianyaqiangdu": 3.2,
+				"lengshu": 2
+			},
+			"D-2.3": {
+				"max-weight": 30,
+				"max-size": 1750,
+				"belong": "2类c",
+				"naipo": 1100,
+				"bianyaqiangdu": 4.5,
+				"lengshu": 2
+			},
+			"D-2.4": {
+				"max-weight": 40,
+				"max-size": 2000,
+				"belong": "2类c",
+				"naipo": 1200,
+				"bianyaqiangdu": 6,
+				"lengshu": 2
+			},
+			"D-2.5": {
+				"max-weight": 55,
+				"max-size": 2500,
+				"belong": "2类c",
+				"naipo": 1300,
+				"bianyaqiangdu": 6.5,
+				"lengshu": 2
+			}
+		};
+		var cartonAttr = cartonAttr2;
+		var naipoGlobal = [{
+			qiangdu: 3,
+			caizhi: {
+				danwa: ["国产B33", "国产C33", "国产B9C"],
+				shuangwa: ["国产C=3"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 3.5,
+			caizhi: {
+				danwa: ["国产C3C", "国产B9C"],
+				shuangwa: [],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 4,
+			caizhi: {
+				danwa: ["国产B3C", "国产B9B", "国产W9C"],
+				shuangwa: ["国产C=C"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 5,
+			caizhi: {
+				danwa: ["国产A3C", "国产B3B", "国产W3B", "国产A9B"],
+				shuangwa: ["国产B=C", "国产W=C"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 5.5,
+			caizhi: {
+				danwa: ["国产W9W", "国产W9B"],
+				shuangwa: [],
+				sanwa: ["B#C"]
+			}
+		}, {
+			qiangdu: 6,
+			caizhi: {
+				danwa: ["国产A3B", "国产A9A"],
+				shuangwa: ["国产B=B", "国产W=B", "国产W=W"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 6.5,
+			caizhi: {
+				danwa: ["国产K3C", "国产W3A", "国产W9A"],
+				shuangwa: [],
+				sanwa: ["国产B#B"]
+			}
+		}, {
+			qiangdu: 7,
+			caizhi: {
+				danwa: ["国产A3A", "国产W3K", "美牛B3B"],
+				shuangwa: ["国产K=C", "国产A=B", "国产W=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 7.5,
+			caizhi: {
+				danwa: ["国产W9K"],
+				shuangwa: [],
+				sanwa: ["国产A#B"]
+			}
+		}, {
+			qiangdu: 8,
+			caizhi: {
+				danwa: ["国产K3B"],
+				shuangwa: ["国产A=A", "国产W=K"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 9,
+			caizhi: {
+				danwa: ["国产K3A", "美牛A3B"],
+				shuangwa: ["国产K=C", "美牛B=B"],
+				sanwa: ["国产A#A"]
+			}
+		}, {
+			qiangdu: 10,
+			caizhi: {
+				danwa: ["国产K3K"],
+				shuangwa: ["国产K=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 10.5,
+			caizhi: {
+				danwa: [],
+				shuangwa: [],
+				sanwa: ["国产K#A"]
+			}
+		}, {
+			qiangdu: 11,
+			caizhi: {
+				danwa: ["美牛A3A"],
+				shuangwa: ["国产K=K", "美牛A=B"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 12,
+			caizhi: {
+				danwa: ["美牛K3A"],
+				shuangwa: [],
+				sanwa: ["国产K#K", "美牛A#B"]
+			}
+		}, {
+			qiangdu: 14,
+			caizhi: {
+				danwa: [],
+				shuangwa: ["美牛A=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 16,
+			caizhi: {
+				danwa: ["美牛K3K"],
+				shuangwa: ["美牛K=A"],
+				sanwa: []
+			}
+		}, {
+			qiangdu: 17,
+			caizhi: {
+				danwa: [],
+				shuangwa: ["美牛K=K"],
+				sanwa: []
+			}
+		}];
+		var walengshuju = {
+			dan: {
+				a: {
+					wanglengchangshu: 8.36,
+					zhixiangchangshu: 1.1
+				},
+				b: {
+					wanglengchangshu: 5,
+					zhixiangchangshu: 1.27
+				},
+				c: {
+					wanglengchangshu: 8.36,
+					zhixiangchangshu: 1.27
+				}
+			},
+			shuang: {
+				aa: {
+					wanglengchangshu: 16.72,
+					zhixiangchangshu: 0.94
+				},
+				bb: {
+					wanglengchangshu: 10,
+					zhixiangchangshu: 1.08
+				},
+				cc: {
+					wanglengchangshu: 12.2,
+					zhixiangchangshu: 1.09
+				},
+				ab: {
+					wanglengchangshu: 13.36,
+					zhixiangchangshu: 1.01
+				},
+				ac: {
+					wanglengchangshu: 14.46,
+					zhixiangchangshu: 1.02
+				},
+				bc: {
+					wanglengchangshu: 11.1,
+					zhixiangchangshu: 1.08
+				}
+			},
+			san: {
+				bca: {
+					wanglengchangshu: 19.46,
+					zhixiangchangshu: 0.98
+				}
+			}
+		};
+		var walengcanshu = walengshuju.dan;
+		var wa = 'danwa';
+		var walengchangshu = {
+			b: 5,
+			c: 6.1,
+			a: 8.36,
+			bc: 11.1,
+			ba: 13.36,
+			ca: 14.46,
+			bca: 19.46
+		};
+		var zhixiangchangshu = {
+			b: 1.27,
+			c: 1.27,
+			a: 1.1,
+			bc: 1.08,
+			ba: 1.01,
+			ca: 1.02,
+			bca: 0.98
+		};
+		var userwaleng = 1;
+
+		var getUserData = function() {
+			var userDepth = $('input[name=depth]').val() / 1000,
+				userWidth = $('input[name=width]').val() / 1000,
+				userHeight = $('input[name=height]').val() / 1000,
+				userWeight = $('input[name=max-weight]').val(),
+				userCount = $('input[name=count]').val(),
+				userDays = $('input[name=days]').val();
+			return {
+				depth: userDepth,
+				width: userWidth,
+				height: userHeight,
+				weight: userWeight,
+				count: userCount,
+				days: userDays
+			};
+		};
+		var getAnQuanXiShu = function(days) {
+			var xishuzhi = 1;
+			if ($('input[name=anquanxishu]').val() === 'no') {
+				if ($('#select-anquanxishu').find('tbody tr').length - 1 != xishu.length) {
+					 alert('请完成参数选择');
+				} else {
+					$.each(xishu, function(k, v) {
+						xishuzhi = xishuzhi / (1 - v);
+					});
+				}
+			} else {
+				xishuzhi = +$('input[name=input-anquanxishu]').val();
+			}
+			return xishuzhi;
+		};
+		var getCode = function(bianya, walengleixing, zuidi) {
+			var bianya, naipo, caizhi, flag = false;
+			$.each(cartonAttr, function(k, v) {
+				if (v.bianyaqiangdu >= bianya && walengleixing.length === v.lengshu) {
+					bianya = v.bianyaqiangdu;
+					naipo = v.naipo;
+					flag = true;
+					return false;
+				}
+			});
+			if (flag) {
+				if (bianya < zuidi.bianyaqiangdu) {
+					bianya = zuidi.bianyaqiangdu;
+					naipo = zuidi.naipo;
+				}
+				naipo = naipo / 98.1;
+				$.each(naipoGlobal, function(k, v) {
+					if (v.qiangdu >= naipo && v.caizhi[wa].length) {
+						caizhi = v.caizhi[wa];
+						return false;
+					}
+				});
+				return '楞型:'+walengleixing+' 材质:' + caizhi.join('或');
+				// console.log('楞型:'+walengleixing+' 材质:' + caizhi.join('或'));
+			}
+			return '楞型:'+walengleixing + " 没有符合的纸板";
+		};
+		$('#getData').on('click', function() {
+			var data = getUserData();
+			var weight = data.weight;
+			var size = data.depth + data.width + data.height;
+			var choosezhi;
+			var caizhi;
+			$.each(cartonAttr, function(k, v) {
+				if (v["max-weight"] >= weight && v["max-size"] >= size && userwaleng == v.lengshu) {
+					choosezhi = k;
+					return false;
+				}
+			});
+			if (!choosezhi) {
+				alert('没有符合的纸箱');
+				return;
+			}
+			var zhiban = cartonAttr[choosezhi];
+			var kangya = 9.81 * getAnQuanXiShu(data.days) * weight * ((data.count - 1) || 1);
+			var str = '';
+			$.each(walengcanshu, function(k, v) {
+				var zhixiangzhouchang = (data.depth + data.width)*200;
+				var walengchangshu4 = 4*v.wanglengchangshu/zhixiangzhouchang;
+				var erfensanci = Math.pow(walengchangshu4, 2/3);
+				var bianya2 = kangya/(erfensanci * zhixiangzhouchang * v.zhixiangchangshu)/10;
+				str += getCode(bianya2, k, zhiban) + '</br>';
+			});
+			$('.carton-choose').html(str);
+		});
+		
+		$(document).on('change', 'select[name=waleng]', function() {
+			userwaleng = $(this).val();
+			if (userwaleng == 1) {
+				walengcanshu = walengshuju.dan;
+				wa = 'danwa';
+			} else if (userwaleng == 2) {
+				walengcanshu = walengshuju.shuang;
+				wa = 'shuangwa';
+			} else {
+				walengcanshu = walengshuju.san;
+				wa = 'sanwa';
+			}
+		});
+		$(document).on('change', 'select[name=zhizhi]', function() {
+			if ($(this).val() === 'b') {
+				cartonAttr = cartonAttr1;
+			} else {
+				cartonAttr = cartonAttr2;
+			}
+		});
+		$(document).on('change', 'input[name=anquanxishu]', function() {
+			if($(this).val() === 'no') {
+				$('#input-anquanxishu').hide();
+				$('#select-anquanxishu').show();
+			} else {
+				$('#select-anquanxishu').hide();
+				$('#input-anquanxishu').show();
+			}
+		});
+		var xishu  = [];
+		$(document).on('click', '.table-div', function() {
+			var $parent = $(this).parent();
+			var $grandPa = $parent.parent();
+			$(this).addClass('selected').siblings().removeClass('selected');
+			var index = $grandPa.index();
+			xishu[index] = +$(this).attr('data-xishu');
+			if ($('#select-anquanxishu').find('tbody tr').length - 1 === xishu.length) {
+				$('.summary-value').text(getAnQuanXiShu());
+			}
+		});
+	</script>
+</body>
+</html>

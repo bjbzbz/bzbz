@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chartset="utf-8">
+	<title>教你买纸箱</title>
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<style type="text/css" media="screen">
+		.table-div {
+			width: 180px;
+			display: inline-block;
+			margin: 5px;
+			border: 1px solid #aaa;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+		.table-div .jiansun {
+			display: block;
+			text-align: center;
+		}
+		.table-div.selected {
+			background: #357898;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+	    <legend>纸箱属性</legend>
+	    长(mm)：<input type="text" name="depth" class="carton-attr" value="450" />
+	    宽(mm)：<input type="text" name="width" class="carton-attr" value="300" />
+	    高(mm)：<input type="text" name="height" class="carton-attr" value="310" />
+	</fieldset>
+	<fieldset>
+	    <legend>使用场景</legend>
+	    内装物最大重量(kg)：<input type="text" name="max-weight" class="carton-using" value="30" />
+	    堆码层数：<input type="text" name="count" class="carton-using" value="11" />
+	</fieldset>
+	<div class="anquanxishu">
+		我不知道安全系数: <input type="radio" name="anquanxishu" value="no" checked="selected">
+		</br>
+		我知道安全系数： <input type="radio" name="anquanxishu" value="yes">
+	</div>
+	<table border="1px" id="select-anquanxishu">
+		<caption>运输环境选择(确认安全系数)</caption>
+		<thead>
+			<tr>
+				<th>环境</th>
+				<th>参数</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>温湿环境</td>
+				<td>
+					<div class="table-div" data-xishu="0.1">
+						<span>装箱后从出厂到销售过程中，存储于干燥阴凉环境</span>
+						<span class="jiansun">(抗压强度减损率10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>装箱后通过陆路流通，但纸箱所处的温湿环境变化大</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.6">
+						<span>装箱后入货柜，走海运出口</span>
+						<span class="jiansun">(抗压强度减损率60%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>堆码时间</td>
+				<td>
+					<div class="table-div" data-xishu="0.15">
+						<span>堆码时间不超过1个月</span>
+						<span class="jiansun">(抗压强度减损率15%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>堆码1~2个月</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.4">
+						<span>堆码时间3个月以上</span>
+						<span class="jiansun">(抗压强度减损率40%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>堆放方法</td>
+				<td>
+					<div class="table-div" data-xishu="0.5">
+						<span>纸箱采用角对角平行式堆码</span>
+						<span class="jiansun">(抗压强度减损率5%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.2">
+						<span>纸箱堆放时不能箱角完全对齐，但堆放整理</span>
+						<span class="jiansun">(抗压强度减损率20%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.3">
+						<span>纸箱杂乱堆放</span>
+						<span class="jiansun">(抗压强度减损率30%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>装卸流通情况</td>
+				<td>
+					<div class="table-div" data-xishu="0.1">
+						<span>流通过程中仅装卸一次，且装卸时很少受到撞击</span>
+						<span class="jiansun">(抗压强度减损率10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.2">
+						<span>虽经过多次装卸，但装卸时对纸箱撞击较少</span>
+						<span class="jiansun">(抗压强度减损率20%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.5">
+						<span>从工厂到超市需经过多次装卸，且运输装卸过程中常受撞击</span>
+						<span class="jiansun">(抗压强度减损率50%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>其他因素</td>
+				<td>
+					<div class="table-div" data-xishu="-0.1">
+						<span>湖料加入了防水耐潮的添加剂</span>
+						<span class="jiansun">(抗压强度减损率-10%)</span>
+					</div>
+					<div class="table-div" data-xishu="0.6">
+						<span>内装物本身为贵重易损物件，对纸箱的保护性要求较高</span>
+						<span class="jiansun">(抗压强度减损率60%)</span>
+					</div>
+				</td>
+			</tr>
+			<tr class="summary">
+				<td>当前推荐安全系数</td>
+				<td class="summary-value">1</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div id="input-anquanxishu" style="display: none;">
+		请输入安全系数： <input type="text" name="input-anquanxishu" placeholder="请输入安全系数">
+	</div>
+
+	<div class="carton-choose" style="display: none;">
+		<table border="1px;">
+			<caption>推荐配置</caption>
+			<thead>
+				<tr>
+					<th>楞型</th>
+					<th>配置</th>
+					<th>对应边压</th>
+					<th>对应耐破</th>
+					<th>对应克重</th>
+					<th>参考单价比</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</div>
+	<button type="button" id="getData">获取数据</button>
+	<script>
+
+		var heightsOfOuterPaper = [125,160,180,200,220,250,280,300,320,340,360];
+		var heightsOfInnerPaper = [80,90,100,110,120,140,160,180,200];
+		var heightOfPaper = {
+			A: 4.5,
+			C: 3.5,
+			B: 2.5,
+			E: 1.1,
+			// F: 0.6,
+			AB: 7,
+			AC: 8,
+			BC: 6,
+			AE: 5.6,
+			BE: 3.6
+		};
+		var shapeRates = {
+			A: 1.59,
+			C: 1.5,
+			B: 1.36,
+			E: 1.27
+		};
+		var maxWeightRate = 1.2;
+		var maxNaiPoRate = 1.3;
+		var maxKangYaRate = 1.1;
+		var baseType = ['A', 'B', 'C', 'E'];
+		var supportType = ['AB', 'AC', 'BC', 'AE', 'BE'];
+		// var minDingLiang = {
+		// 	s: [{
+		// 		weight: 250,
+		// 		naiPo$A: 650,
+		// 		naiPo$B: 450,
+		// 		bianYa$A: 3,
+		// 		bianYa$B: 2
+		// 	}, {
+		// 		weight: 320,
+		// 		naiPo$A: 800,
+		// 		naiPo$B: 600,
+		// 		bianYa$A: 3.5,
+		// 		bianYa$B: 2.5
+		// 	}, {
+		// 		weight: 360,
+		// 		naiPo$A: 1000,
+		// 		naiPo$B: 750,
+		// 		bianYa$A: 4.5,
+		// 		bianYa$B: 3
+		// 	}, {
+		// 		weight: 420,
+		// 		naiPo$A: 1150,
+		// 		naiPo$B: 850,
+		// 		bianYa$A: 5.5,
+		// 		bianYa$B: 3.5
+		// 	}, {
+		// 		weight: 500,
+		// 		naiPo$A: 1500,
+		// 		naiPo$B: 1000,
+		// 		bianYa$A: 6.5,
+		// 		bianYa$B: 4.5
+		// 	}]
+		// };
+		var nameMap = {
+			A: '普通箱纸板优等品',
+			B: '普通箱纸板一等品',
+			C: '普通箱纸板合格品',
+			AAA: '牛皮卡优等品',
+			AA: '牛皮卡一等品',
+			AAA$A: 'AAA级优等品',
+			AA$A: 'AA级优等品',
+			A$A: 'A级优等品',
+			$B: '一等品',
+			$C: '合格品'
+		};
+		// var priceMap = {
+		// 	AAA: 1.5,
+		// 	AA: 1.3,
+		// 	A: 1.1,
+		// 	B: 1.05,
+		// 	C: 1,
+		// 	AAA$A: 1.2,
+		// 	AA$A: 1.05,
+		// 	A$A: 1,
+		// 	$B: 0.9,
+		// 	$C: 0.85
+		// };
+		var priceMap = {
+			AAA: 4900 / 1000000,
+			AA: 4000 / 1000000,
+			A: 2900 / 1000000,
+			B: 2700 / 1000000,
+			C: 2600 / 1000000,
+			AAA$A: 2700 / 1000000,
+			AA$A: 2500 / 1000000,
+			A$A: 2300 / 1000000,
+			$B: 2200 / 1000000,
+			$C: 2100 / 1000000
+		};
+		var levelMap = {
+			C: 1,
+			$C: 1,
+			B: 2,
+			$B: 2,
+			A: 3,
+			A$A: 3,
+			AA: 4,
+			AA$A: 4,
+			AAA: 5,
+			AAA$A: 5
+		};
+		var outerRates = [{
+			maxQ: 160,
+			ringCrush_A: 8.6,
+			ringCrush_B: 7,
+			ringCrush_C: 5.5,
+			ringCrush_AAA: 9,
+			ringCrush_AA: 8,
+			bursting_A: 3.3,
+			bursting_B: 3,
+			bursting_C: 2.2,
+			bursting_AAA: 3.4,
+			bursting_AA: 3.2
+		}, {
+			maxQ: 200,
+			ringCrush_A: 9,
+			ringCrush_B: 7.5,
+			ringCrush_C: 5.7,
+			bursting_A: 3.1,
+			bursting_B: 2.85,
+			bursting_C: 2.1,
+			ringCrush_AAA: 9.5,
+			ringCrush_AA: 9,
+			bursting_AAA: 3.3,
+			bursting_AA: 3.1
+		}, {
+			maxQ: 250,
+			ringCrush_A: 9.2,
+			ringCrush_B: 8,
+			ringCrush_C: 6,
+			bursting_A: 3,
+			bursting_B: 2.75,
+			bursting_C: 2,
+			ringCrush_AAA: 10,
+			ringCrush_AA: 9.2,
+			bursting_AAA: 3.2,
+			bursting_AA: 3
+		}, {
+			maxQ: 300,
+			ringCrush_A: 10.6,
+			ringCrush_B: 8.5,
+			ringCrush_C: 6.5,
+			bursting_A: 2.9,
+			bursting_B: 2.65,
+			bursting_C: 1.95,
+			ringCrush_AAA: 11,
+			ringCrush_AA: 10,
+			bursting_AAA: 3.1,
+			bursting_AA: 2.9
+		}, {
+			maxQ: 9999,
+			ringCrush_A: 11.2,
+			ringCrush_B: 9,
+			ringCrush_C: 7,
+			bursting_A: 2.8,
+			bursting_B: 2.55,
+			bursting_C: 1.9,
+			ringCrush_AAA: 11.5,
+			ringCrush_AA: 10.5,
+			bursting_AAA: 3,
+			bursting_AA: 2.8
+		}];
+		var innerRate = [{
+			maxQ: 90,
+			ringCrush_AAA$A: 7.5,
+			ringCrush_$B: 5,
+			ringCrush_$C: 3,
+			ringCrush_AA$A: 7,
+			ringCrush_A$A: 6.5,
+			bursting: 1.3
+		}, {
+			maxQ: 140,
+			ringCrush_AAA$A: 8.5,
+			ringCrush_$B: 5.3,
+			ringCrush_$C: 3.5,
+			ringCrush_AA$A: 7.5,
+			ringCrush_A$A: 6.8,
+			bursting: 1.3
+		}, {
+			maxQ: 180,
+			ringCrush_AAA$A: 10,
+			ringCrush_$B: 6.3,
+			ringCrush_$C: 4.4,
+			ringCrush_AA$A: 9,
+			ringCrush_A$A: 7.7,
+			bursting: 1.3
+		}, {
+			maxQ: 999,
+			ringCrush_AAA$A: 11.5,
+			ringCrush_$B: 7.7,
+			ringCrush_$C: 5.5,
+			ringCrush_AA$A: 10.5,
+			ringCrush_A$A: 9.2,
+			bursting: 1.3
+		}];
+
+		var getUserData = function() {
+			var userDepth = $('input[name=depth]').val() / 1000,
+				userWidth = $('input[name=width]').val() / 1000,
+				userHeight = $('input[name=height]').val() / 1000,
+				userWeight = $('input[name=max-weight]').val(),
+				userCount = $('input[name=count]').val();
+			return {
+				depth: userDepth,
+				width: userWidth,
+				height: userHeight,
+				weight: userWeight,
+				count: userCount
+			};
+		};
+		var getAnQuanXiShu = function(days) {
+			var xishuzhi = 1;
+			if (anquanxishuselect === 'no') {
+				if ($('#select-anquanxishu').find('tbody tr').length - 1 != xishu.length) {
+					 alert('请完成参数选择');
+				} else {
+					$.each(xishu, function(k, v) {
+						xishuzhi = xishuzhi / (1 - v);
+					});
+				}
+			} else {
+				xishuzhi = +$('input[name=input-anquanxishu]').val();
+			}
+			return xishuzhi;
+		};
+		
+		// 考虑了瓦楞收缩率
+		// var getInnerHuanya = function() {
+		// 	var ringPress = [];
+		// 	$.each(heightsOfInnerPaper, function(k, v) {
+		// 		$.each(innerRate, function(kk, vv) {
+		// 			var temp = {};
+		// 			if (v <= vv.maxQ) {
+		// 				$.each(shapeRates, function(kkk, vvv) {
+		// 					temp[kkk] = {
+		// 						AAA$A: v * vv.ringCrush_AAA$A * vvv,
+		// 						AA$A: v * vv.ringCrush_AA$A * vvv,
+		// 						A$A: v * vv.ringCrush_A$A * vvv,
+		// 						$B: v * vv.ringCrush_$B * vvv,
+		// 						$C: v * vv.ringCrush_$C * vvv
+		// 					}
+		// 				});
+		// 				ringPress.push(temp);
+		// 				return false;
+		// 			}
+		// 		});
+		// 	});
+		// 	return ringPress;
+		// };
+		var getInnerHuanya = function() {
+			var ringPress = [];
+			$.each(heightsOfInnerPaper, function(k, v) {
+				$.each(innerRate, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						ringPress.push({
+							ring: {
+								AAA$A: v * vv.ringCrush_AAA$A,
+								AA$A: v * vv.ringCrush_AA$A,
+								A$A: v * vv.ringCrush_A$A,
+								$B: v * vv.ringCrush_$B,
+								$C: v * vv.ringCrush_$C
+							},
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return ringPress;
+		};
+		var getOuterHuanYa = function() {
+			var ringPress = [];
+			$.each(heightsOfOuterPaper, function(k, v) {
+				$.each(outerRates, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						ringPress.push({
+							ring: {
+								A: v * vv.ringCrush_A,
+								B: v * vv.ringCrush_B,
+								C: v * vv.ringCrush_C,
+								AA: v * vv.ringCrush_AA,
+								AAA: v * vv.ringCrush_AAA
+							},
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return ringPress;
+		};
+		var getOuterNaiPo = function() {
+			var burstingPress = [];
+			$.each(heightsOfOuterPaper, function(k, v) {
+				$.each(outerRates, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						burstingPress.push({
+							bursting: {
+								A: v * vv.bursting_A,
+								B: v * vv.bursting_B,
+								C: v * vv.bursting_C,
+								AA: v * vv.bursting_AA,
+								AAA: v * vv.bursting_AAA
+							},
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return burstingPress;
+		};
+		var getOuterInfo = function() {
+			var info = [];
+			$.each(heightsOfOuterPaper, function(k, v) {
+				$.each(outerRates, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						info.push({
+							bursting: {
+								A: v * vv.bursting_A,
+								B: v * vv.bursting_B,
+								C: v * vv.bursting_C,
+								AA: v * vv.bursting_AA,
+								AAA: v * vv.bursting_AAA
+							},
+							ring: {
+								A: v * vv.ringCrush_A,
+								B: v * vv.ringCrush_B,
+								C: v * vv.ringCrush_C,
+								AA: v * vv.ringCrush_AA,
+								AAA: v * vv.ringCrush_AAA
+							},
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return info;
+		}
+		
+		var getInnerNaiPo = function() {
+			var burstingPress = [];
+			$.each(heightsOfInnerPaper, function(k, v) {
+				$.each(innerRate, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						burstingPress.push({
+							bursting: v * vv.bursting,
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return burstingPress;
+		};
+
+		var getInnerInfo = function() {
+			var info = [];
+			$.each(heightsOfInnerPaper, function(k, v) {
+				$.each(innerRate, function(kk, vv) {
+					if (v <= vv.maxQ) {
+						info.push({
+							bursting: v * vv.bursting,
+							ring: {
+								AAA$A: v * vv.ringCrush_AAA$A,
+								AA$A: v * vv.ringCrush_AA$A,
+								A$A: v * vv.ringCrush_A$A,
+								$B: v * vv.ringCrush_$B,
+								$C: v * vv.ringCrush_$C,
+							},
+							weight: v
+						});
+						return false;
+					}
+				});
+			});
+			return info;
+		}
+		var getBianYa = function(kangya, z) {
+			var zhouchang = z;
+			var bianya = {};
+			$.each(heightOfPaper, function(k, v) {
+				bianya[k] = kangya / (5.874 * Math.pow(zhouchang * v / 1000, 1 / 2));
+			});
+			return bianya;
+		};
+		var getHeGeZuiXiaoDingLiang = function(type, bianya) {
+			var lengshu = type.length;
+			if (lengshu === 1) {
+				if (bianya > 4500) {
+					return {
+						dingliang: 500,
+						naipo: 1000
+					};
+				} else if (bianya > 3500) {
+					return {
+						dingliang: 420,
+						naipo: 850
+					};
+				} else if (bianya > 3000) {
+					return {
+						dingliang: 360,
+						naipo: 750
+					};
+				} else if (bianya > 2500) {
+					return {
+						dingliang: 320,
+						naipo: 600
+					};
+				} else if (bianya > 2000) {
+					return {
+						dingliang: 250,
+						naipo: 450
+					};
+				}
+			} else if (lengshu === 2) {
+				if (bianya > 6500) {
+					return {
+						dingliang: 700,
+						naipo: 1300
+					};
+				} else if (bianya > 6000) {
+					return {
+						dingliang: 640,
+						naipo: 120
+					};
+				} else if (bianya > 4500) {
+					return {
+						dingliang: 560,
+						naipo: 1100
+					};
+				} else if (bianya > 3200) {
+					return {
+						dingliang: 450,
+						naipo: 800
+					};
+				} else if (bianya > 2800) {
+					return {
+						dingliang: 375,
+						naipo: 600
+					};
+				} else {
+					return '推荐使用单瓦楞';
+				}
+			} else if (lengshu === 3) {
+				if (bianya > 10000) {
+					return {
+						dingliang: 1000,
+						naipo: 1900
+					};
+				} else if (bianya > 8000) {
+					return {
+						dingliang: 820,
+						naipo: 1600
+					};
+				} else if (bianya > 6000) {
+					return {
+						dingliang: 720,
+						naipo: 1500
+					};
+				} else if (bianya > 5000) {
+					return {
+						dingliang: 640,
+						naipo: 1300
+					};
+				}
+				return '推荐使用双瓦楞';
+			} else {
+				return false;
+			}
+		};
+		var getOuterNaiPoSum = function() {
+			var naipo = getOuterInfo();
+			var length = naipo.length;
+			var allZuHe = [];
+			for (var i = 0; i < length; i++) {
+				for (var j = i; j < length; j++) {
+					var naipo1 = naipo[i];
+					var naipo2 = naipo[j];
+					var weight = naipo1.weight + naipo2.weight;
+					$.each(naipo1.bursting, function(k, v) {
+						$.each(naipo2.bursting, function(kk, vv) {
+							allZuHe.push({
+								sumWeight: weight,
+								sumNaiPo: v + vv,
+								sumHuanYa: naipo1.ring[k] + naipo2.ring[kk],
+								price: priceMap[k] * naipo1.weight + priceMap[kk] * naipo2.weight,
+								name: naipo2.weight + 'g/m²' + nameMap[kk] + ' ' + naipo1.weight + 'g/m²' + nameMap[k] + ' ',
+								cailiao: [{
+									weight: naipo1.weight,
+									name: k,
+									price: priceMap[k] * naipo1.weight,
+									isZhiBan: true
+								}, {
+									weight: naipo2.weight,
+									name: kk,
+									price: priceMap[kk] * naipo2.weight,
+									isZhiBan: true
+								}]
+							})
+						});
+					});
+				}
+			}
+			return allZuHe;
+		};
+		var getCaiLiaoOfNaiPo = function(zongNaiPo, type) {
+			var lengshu = type.length;
+			var mianzhi,lizhi,jiaxinzhi;
+			var naipo = getOuterNaiPoSum();
+			var heFaNaiPo = [];
+			var heLiNaiPo1 = [];
+			var heLiNaiPo2 = [];
+			var heLiNaiPo12 = [];
+			var minDingLiang = zongNaiPo.dingliang;
+			var minNaiPo = zongNaiPo.naipo / 0.95; //实际纸板耐破为各层纸耐破相加后乘以0.95
+			if (lengshu === 1) {
+				$.each(naipo, function(k, v) {
+					var dingliangmin = minDingLiang;
+					var dingliangmax = minDingLiang * maxWeightRate;
+					var naipomin = minNaiPo;
+					var naipomax = minNaiPo * maxNaiPoRate;
+					var cailiao = v.cailiao;
+					var cailiao1 = cailiao[0];
+					var cailiao2 = cailiao[1];
+					if (v.sumNaiPo >= naipomin && v.sumNaiPo <= naipomax && v.sumWeight >= dingliangmin && v.sumWeight <= dingliangmax) {
+						heFaNaiPo.push(v);
+						if (cailiao1.name === cailiao2.name) {
+							heLiNaiPo1.push(v);
+						}
+						if (cailiao1.weight === cailiao2.weight) {
+							heLiNaiPo2.push(v);
+						}
+						if (cailiao1.name === cailiao2.name && cailiao1.weight === cailiao2.weight) {
+							heLiNaiPo12.push(v);
+						}
+					}
+				});
+			} else if (lengshu === 2) {
+				$.each(getInnerInfo(), function(k1, v1) {
+					var dingliangmin = minDingLiang - v1.weight;
+					var dingliangmax = minDingLiang * maxWeightRate - v1.weight;
+					var naipomin = minNaiPo - v1.bursting;
+					var naipomax = minNaiPo * maxNaiPoRate - v1.bursting;
+					$.each(naipo, function(k, v) {
+						var cailiao = v.cailiao;
+						var cailiao1 = cailiao[0];
+						var cailiao2 = cailiao[1];
+						if (v.sumNaiPo >= naipomin && v.sumNaiPo <= naipomax && v.sumWeight >= dingliangmin && v.sumWeight <= dingliangmax) {
+							var sumNaiPo = v.sumNaiPo + v1.bursting;
+							var sumWeight = v.sumWeight + v1.weight;
+							$.each(v1.ring, function(kk, vv) {
+								var price = v.price + priceMap[kk] * v1.weight;
+								var sumHuanYa = v.sumHuanYa + vv;
+								var name = v.name + ' ' + v1.weight + 'g/m²' + nameMap[kk];
+								var item = $.extend(true, {}, v, {
+									sumHuanYa: sumHuanYa,
+									name: name,
+									price: price,
+									sumNaiPo: sumNaiPo,
+									sumWeight, sumWeight
+								});
+								item.cailiao[2] = {
+									name: kk,
+									weight: v1.weight,
+									price: priceMap[kk] * v1.weight,
+									isXinZhi: true
+								};
+								heFaNaiPo.push(item);
+								if (cailiao1.name === cailiao2.name) {
+									heLiNaiPo1.push(item);
+								}
+								if (cailiao1.weight === cailiao2.weight) {
+									heLiNaiPo2.push(item);
+								}
+								if (cailiao1.name === cailiao2.name && cailiao1.weight === cailiao2.weight) {
+									heLiNaiPo12.push(item);
+								}
+							})
+							
+						}
+					});
+				});
+			} else if (lengshu === 3) {
+				$.each(getInnerInfo(), function(k1, v1) {
+					var dingliangmin = minDingLiang - v1.weight * 2;
+					var dingliangmax = minDingLiang * maxWeightRate - v1.weight * 2;
+					var naipomin = minNaiPo - v1.bursting * 2;
+					var naipomax = minNaiPo * maxNaiPoRate - v1.bursting * 2;
+					$.each(naipo, function(k, v) {
+						var cailiao = v.cailiao;
+						var cailiao1 = cailiao[0];
+						var cailiao2 = cailiao[1];
+						if (v.sumNaiPo >= naipomin && v.sumNaiPo <= naipomax && v.sumWeight >= dingliangmin && v.sumWeight <= dingliangmax) {
+							var sumNaiPo = v.sumNaiPo + v1.bursting * 2;
+							var sumWeight = v.sumWeight + v1.weight * 2;
+							$.each(v1.ring, function(kk, vv) {
+								var price = v.price + priceMap[kk] * v1.weight * 2;
+								var sumHuanYa = v.sumHuanYa + vv;
+								var name = v.name + ' ' + v1.weight + 'g/m²' + nameMap[kk];
+								var item = $.extend(true, {}, v, {
+									sumHuanYa: sumHuanYa,
+									name: name,
+									price: price,
+									sumNaiPo: sumNaiPo,
+									sumWeight, sumWeight
+								});
+								item.cailiao[2] = {
+									name: kk,
+									weight: v1.weight,
+									price: priceMap[kk] * v1.weight,
+									isXinZhi: true
+								};
+								heFaNaiPo.push(item);
+								if (cailiao1.name === cailiao2.name) {
+									heLiNaiPo1.push(item);
+								}
+								if (cailiao1.weight === cailiao2.weight) {
+									heLiNaiPo2.push(item);
+								}
+								if (cailiao1.name === cailiao2.name && cailiao1.weight === cailiao2.weight) {
+									heLiNaiPo12.push(item);
+								}
+							})
+							
+						}
+					});
+				});
+			} else {
+				return false;
+			}
+			return heFaNaiPo;
+			if (heLiNaiPo12.length) {
+				return heLiNaiPo12;
+			} else if (heLiNaiPo2.length) {
+				return heLiNaiPo2;
+			} else if (heLiNaiPo1.length) {
+				return heLiNaiPo1;
+			} else {
+				return heFaNaiPo;
+			}
+		};
+		var base = {};
+		var createBase = function() {
+			var inner = getInnerInfo();
+			
+			$.each(baseType, function(k, v) {
+				var rate = shapeRates[v];
+				base[v] = [];
+				$.each(inner, function(kk, vv) {
+					var weight = vv.weight;
+					$.each(vv.ring, function(kkk, vvv) {
+						base[v].push({
+							weight: weight,
+							bianya: vvv * rate,
+							name: v + '楞' + weight + 'g/m²' + nameMap[kkk] + '瓦楞纸',
+							price: priceMap[kkk] * weight * shapeRates[v],
+							zhicai: [{
+								type: kkk,
+								weight: weight,
+								price: priceMap[kkk] * weight * shapeRates[v],
+								isWaZhi: true
+							}]
+						});
+					})
+				});
+			});
+		};
+		var isInLevel = function(arr, step) {
+			var len = arr.length;
+			var flag = true;
+			for (var i = 0; i < len; i++) {
+				for (var j = i + 1; j < len; j++) {
+					if (arr[i] - arr[j] < step && arr[i] - arr[j] > step / -1) {
+
+					} else {
+						flag = false;
+						break;
+					}
+				}
+			}
+			return flag;
+		};
+		var isInKeZhong = function(arr) {
+			var len = arr.length;
+			var step = 2;
+			var flag = true;
+			for (var i = 0; i < len; i++) {
+				for (var j = i + 1; j < len; j++) {
+					if (arr[i].isZhiBan && arr[j].isWaZhi) {
+						if (arr[i].weight / arr[j].weight > 2) {
+							flag = false;
+							break;
+						}
+					}
+				}
+			}
+			return flag;
+		};
+		var getAllInnerBianYa = function(type) {
+			var all = {};
+			if (type) {
+				var v = type;
+				all[v] = [];
+				if (v.length === 1) {
+					all[type] = $.extend(true, {}, base[type]);
+				} else if (v.length === 2) {
+					var base1 = base[v[0]],base2 = base[v[1]];
+					for (var i = 0; i < base1.length; i++) {
+						var base11 = base1[i];
+						var name1 = base11.zhicai[0].type;
+						var level1 = levelMap[name1];
+						for (var j = 0; j < base2.length; j++) {
+							var base22 = base2[j];
+							var name2 = base22.zhicai[0].type;
+							var level2 = levelMap[name2];
+							if (isInLevel([level1, level2], 2)) {
+								all[v].push({
+									bianya: base11.bianya + base22.bianya,
+									weight: base11.weight + base22.weight,
+									name: base11.name + base22.name,
+									price: base11.price + base22.price,
+									zhicai: base11.zhicai.concat(base22.zhicai)
+								});
+							}
+							
+						}
+					}
+				} else if (v.length === 3) {
+					var base1 = base[v[0]],base2 = base[v[1]],base3 = base[v[2]];
+					for (var i = 0; i < base1.length; i++) {
+						var base11 = base1[i];
+						var name1 = base11.zhicai[0].type;
+						var level1 = levelMap[name1];
+						for (var j = 0; j < base2.length; j++) {
+							var base22 = base2[j];
+							var name2 = base22.zhicai[0].type;
+							var level2 = levelMap[name2];
+							for (var k = 0; k < base3.length; k++) {
+								var base33 = base3[k];
+								var name3 = base33.zhicai[0].type;
+								var level3 = levelMap[name3];
+								if (isInLevel([level1, level2, level3], 2)) {
+									all[v].push({
+										bianya: base11.bianya + base22.bianya + base33.bianya,
+										weight: base11.weight + base22.weight + base33.weight,
+										price: base11.price + base22.price + base33.price,
+										name: base11.name + base22.name + base33.name,
+										zhicai: base11.zhicai.concat(base22.zhicai).concat(base33.zhicai)
+									});
+								}
+							}
+						}
+					}
+				}
+			} else {
+				all = $.extend(true, {}, base);
+				$.each(supportType, function(k1 ,v) {
+					all[v] = [];
+					if (v.length === 2) {
+						var base1 = base[v[0]],base2 = base[v[1]];
+						for (var i = 0; i < base1.length; i++) {
+							var base11 = base1[i];
+							for (var j = 0; j < base2.length; j++) {
+								var base22 = base2[j];
+								all[v].push({
+									bianya: base11.bianya + base22.bianya,
+									weight: base11.weight + base22.weight,
+									price: base11.price + base22.price,
+									name: base11.name + base22.name,
+									zhicai: base11.zhicai.concat(base22.zhicai)
+								});
+							}
+						}
+					} else if (v.length === 3) {
+						var base1 = base[v[0]],base2 = base[v[1]],base3 = base[v[2]];
+						for (var i = 0; i < base1.length; i++) {
+							var base11 = base1[i];
+							for (var j = 0; j < base2.length; j++) {
+								var base22 = base2[j];
+								for (var k = 0; k < base3.length; k++) {
+									var base33 = base3[k];
+									all[v].push({
+										bianya: base11.bianya + base22.bianya + base33.bianya,
+										weight: base11.weight + base22.weight + base33.weight,
+										price: base11.price + base22.price + base33.price,
+										name: base11.name + base22.name + base33.name,
+										zhicai: base11.zhicai.concat(base22.zhicai).concat(base33.zhicai)
+									});
+								}
+							}
+						}
+					}
+				});
+			}
+			
+			return all;
+		};
+		var getMinRCT = function(minrct, haveRct, type) {
+			if (type.length === 1) {
+				return minrct - haveRct;
+			} else if (type.length > 1) {
+				return minrct / 1.1 - haveRct;
+			}
+		};
+		var getECT = function(rct1, rct2, type) {
+			if (type.length === 1) {
+				return rct1 + rct2;
+			} else if (type.length > 1) {
+				return (rct1 + rct2) * 1.1;
+			}
+		};
+		var getLeftBianYa = function(type, naipoobj, bianya) {
+			var allBianya = getAllInnerBianYa(type);
+			var allBianYaArr = [];
+			$.each(allBianya[type], function(k, v) {
+				allBianYaArr.push(v);
+			});
+			allBianYaArr = allBianYaArr.sort(function(a, b) {
+				return a.bianya - b.bianya;
+			});
+			var peizhi = [];
+			var bianyasum = bianya[type];
+			var maxbianyasum = bianyasum * maxKangYaRate;
+
+			$.each(naipoobj, function(k, v) {
+				var leftBianYa = getMinRCT(bianyasum, v.sumHuanYa, type);
+				$.each(allBianYaArr, function(kk, vv) {
+					if (vv.bianya >= leftBianYa) {
+						if (getECT(vv.bianya, v.sumHuanYa, type) <= maxbianyasum) {
+							peizhi.push({
+								yaoqiubianya: bianyasum,
+								naipo: v.sumNaiPo,
+								bianya: getECT(vv.bianya, v.sumHuanYa, type),
+								weight: vv.weight + v.sumWeight,
+								name: v.name + vv.name,
+								price: v.price + vv.price,
+								zhicai: v.cailiao.concat(vv.zhicai)
+							});
+						}
+						
+					}
+				});
+			});
+			return peizhi;
+		};
+		var getselectPeizhi = function(type, items) {
+			var selected = [];
+			$.each(items, function(k, v) {
+				var caizhi = [];
+				var kezhong = [];
+				$.each(v.zhicai, function(k, v) {
+					//材质选择
+					caizhi.push(levelMap[v.name || v.type]);
+				});
+				if (isInLevel(caizhi, 2) && isInKeZhong(v.zhicai)) {
+					selected.push(v)
+				}
+			});
+			selected = selected.sort(function(a, b) {
+				return a.price - b.price;
+			});
+			return selected;
+		};
+		$('#getData').on('click', function() {
+			var data = getUserData();
+			var weight = data.weight;
+			var size = data.depth + data.width + data.height;
+			var kangya = 9.81 * getAnQuanXiShu() * weight * ((data.count - 1) || 1);
+			var bianya = getBianYa(kangya, (data.width + data.depth) * 2);
+			var zuixiaodingliang = {};
+			createBase();
+			$.each(bianya, function(k, v) {
+				zuixiaodingliang[k] = getHeGeZuiXiaoDingLiang(k, v);
+			});
+			var naipodingliang = {};
+			$.each(zuixiaodingliang, function(k ,v) {
+				naipodingliang[k] = getCaiLiaoOfNaiPo(v, k);
+			});
+
+			var peizhi = {};
+			$.each(naipodingliang, function(k, v) {
+				peizhi[k] = getLeftBianYa(k, v, bianya);
+			});
+
+			var selectPeizhi = {};
+			$.each(peizhi, function(k, v) {
+				selectPeizhi[k] = getselectPeizhi(k, v);
+			});
+			
+
+			// console.log(selectPeizhi);
+			var str = '';
+			var start = '<tr>'
+			var end = '</tr>';
+			$.each(selectPeizhi, function(k, vv) {
+				var v = [];
+				if (vv.length) {
+					v = vv[0];
+					str += start +
+						   '<td>'+ k +'</td>' + 
+						   '<td style="width: 500px">'+ v.name +'</td>' + 
+						   '<td>'+ v.bianya +'</td>' + 
+						   '<td>'+ v.naipo +'</td>' + 
+						   '<td>'+ v.weight +'</td>' + 
+						   '<td>'+ v.price.toFixed(2) +'</td>' + 
+						   end;
+				}
+			})
+			$('.carton-choose').show().find('tbody').html(str);
+		});
+		
+		var anquanxishuselect = 'no';
+		$(document).on('change', 'input[name=anquanxishu]', function() {
+			if($(this).val() === 'no') {
+				$('#input-anquanxishu').hide();
+				$('#select-anquanxishu').show();
+				anquanxishuselect = 'no';
+			} else {
+				$('#select-anquanxishu').hide();
+				$('#input-anquanxishu').show();
+				anquanxishuselect = 'yes';
+			}
+		});
+		var xishu  = [];
+		$(document).on('click', '.table-div', function() {
+			var $parent = $(this).parent();
+			var $grandPa = $parent.parent();
+			$(this).addClass('selected').siblings().removeClass('selected');
+			var index = $grandPa.index();
+			xishu[index] = +$(this).attr('data-xishu');
+			if ($('#select-anquanxishu').find('tbody tr').length - 1 === xishu.length) {
+				$('.summary-value').text(getAnQuanXiShu());
+			}
+		});
+	</script>
+</body>
+</html>
