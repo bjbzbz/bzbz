@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>包装费</title>
+  <style type="text/css">
+    .rectangle {
+      border: 1px solid #000;
+      position: relative;
+      margin: 50px;
+    }
+    .circle {
+      border: 1px solid #000;
+      border-radius: 50px;
+      box-sizing: border-box;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
+    .package-demo {
+    	display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="user-input">
+    <div class="tape">
+      <label>纸管外径(cm)</label><input type="text" name="tube-diameter" value="8.2" /></br>
+      <label>胶带厚度(μm)</label><input type="text" name="tape-thickness" value="140" /></br>
+      <label>最小长度(m)</label><input type="text" name="min-length" value="5" /></br>
+      <label>最大长度(m)</label><input type="text" name="max-length" value="50" /></br>
+      <label>长度跳步(m)</label><input type="text" name="length-step" value="1" /></br>
+      <label>最小宽度(cm)</label><input type="text" name="min-width" value="0.5" /></br>
+      <label>最大宽度(cm)</label><input type="text" name="max-width" value="20" /></br>
+      <label>宽度跳步(cm)</label><input type="text" name="width-step" value="0.5" /></br>
+    </div>
+    <div class="box">
+      <div class="title">纸箱规格</div>
+      <label>长(mm)</label><input type="text" name="box-length" value="510"/>
+      <label>宽(mm)</label><input type="text" name="box-width" value="300"/>
+      <label>高(mm)</label><input type="text" name="box-height" value="288"/>
+    </div>
+    
+  </div>
+  <div class="package-demo">
+    <div class="rectangle"></div>
+  </div>
+  <table border="1px" id="table" style="display: none">
+  	<caption>一箱装箱量</caption>
+  	<thead>
+  		<tr>
+  			<th>长度(m)</th>
+  			<th>宽度(cm)</th>
+  			<th>直径(cm)</th>
+  			<th>筒数</th>
+  			<th>一筒卷数</th>
+  			<th>一箱卷数</th>
+  		</tr>
+  	</thead>
+  	<tbody id="zhuangxiang">
+  		
+  	</tbody>
+  </table>
+  <button type="button" id="culc">计算卷数</button>
+  <script type="text/javascript">
+    var sqrt3 = Math.sqrt(3);
+    var querySelector = function(selector, parent) {
+      parent = parent || document;
+      return parent.querySelector(selector);
+    };
+    var queryInputName = function(selector, parent) {
+      return querySelector('input[name=' + selector + ']', parent);
+    };
+    var getValueNum = function($input) {
+      return parseFloat($input.value);
+    };
+
+    var getUserInput = function() {
+      var $userInput = querySelector('.user-input');
+      var diameterOfTube = getValueNum(queryInputName('tube-diameter', $userInput));
+      var thicknessOfTape = getValueNum(queryInputName('tape-thickness', $userInput));
+      var minLen = getValueNum(queryInputName('min-length', $userInput));
+      var maxLen = getValueNum(queryInputName('max-length', $userInput));
+      var lenStep = getValueNum(queryInputName('length-step', $userInput));
+      var minWidth = getValueNum(queryInputName('min-width', $userInput));
+      var maxWidth = getValueNum(queryInputName('max-width', $userInput));
+      var widthStep = getValueNum(queryInputName('width-step', $userInput));
+      var boxLength = getValueNum(queryInputName('box-length', $userInput));
+      var boxWidth = getValueNum(queryInputName('box-width', $userInput));
+      var boxHeight = getValueNum(queryInputName('box-height', $userInput));
+      return {
+        diameterOfTube: diameterOfTube / 100,
+        thicknessOfTape: thicknessOfTape / 1000000,
+        minLen: minLen / 1,
+        maxLen: maxLen / 1,
+        lenStep: lenStep / 1,
+        minWidth: minWidth / 100,
+        maxWidth: maxWidth / 100,
+        widthStep: widthStep / 100,
+        boxLength: boxLength / 1000,
+        boxWidth: boxWidth / 1000,
+        boxHeight: boxHeight / 1000
+      };
+    };
+    var getDiametersOfTape = function() {
+      var userInput = getUserInput();
+      var diameterOfTube = userInput.diameterOfTube;
+      var thicknessOfTape = userInput.thicknessOfTape;
+      var minLen = userInput.minLen;
+      var maxLen = userInput.maxLen;
+      var lenStep = userInput.lenStep;
+      var diameterOfTapes = [];
+      var len, diameter;
+      for (len = minLen; len <= maxLen; len += lenStep) {
+        diameter = 2 * Math.sqrt((len * thicknessOfTape + Math.PI * (diameterOfTube / 2) * (diameterOfTube / 2)) / Math.PI) + thicknessOfTape;
+        diameterOfTapes.push({
+          len: len,
+          diameter: diameter
+        });
+      }
+      if (len - lenStep < maxLen) {
+      	diameter = 2 * Math.sqrt((maxLen * thicknessOfTape + Math.PI * (diameterOfTube / 2) * (diameterOfTube / 2)) / Math.PI) + thicknessOfTape;
+        diameterOfTapes.push({
+          len: maxLen,
+          diameter: diameter
+        });
+      }
+      return diameterOfTapes;
+    };
+    var getTapesCountOfOneTube = function() {
+    	var userInput = getUserInput();
+    	var minWidth = userInput.minWidth;
+    	var maxWidth = userInput.maxWidth;
+    	var widthStep = userInput.widthStep;
+    	var boxHeight = userInput.boxHeight;
+    	var counts = [];
+    	var count,width;
+    	for (width = minWidth; width <= maxWidth; width += widthStep) {
+    		count = Math.floor(boxHeight / width);
+    		counts.push({
+    			width: width,
+    			count: count
+    		});
+    	}
+    	if (width - widthStep < maxWidth) {
+    		count = Math.floor(boxHeight / maxWidth);
+    		counts.push({
+    			width: maxWidth,
+    			count: count
+    		});
+    	}
+    	return counts;
+    }
+    var getOneTubeCountOfTape = function() {
+      var userInput = getUserInput();
+      var boxHeight = userInput.boxHeight;
+      var minWidth = userInput.minWidth;
+      var maxWidth = userInput.maxWidth;
+      var widthStep = userInput.widthStep;
+      var counts = [];
+      for (var width = minWidth; width <= maxWidth; width += widthStep) {
+        var count = Math.floor(boxHeight / width);
+        counts.push({
+          width: width,
+          count: count
+        });
+      }
+      return counts;
+    }
+    var getTubesOfBox1 = function(ibox, tape) {
+      var box = {
+        width: ibox.width,
+        length: ibox.length,
+        tapeDiameter: tape.diameter,
+        tapeLength: tape.len,
+        count: 0,
+        key: [] 
+      };
+      var boxLength = box.length;
+      var boxWidth = box.width;
+      var diameter = tape.diameter;
+      var column = Math.floor(boxLength / diameter);
+      var row = Math.floor(boxWidth / diameter);
+      if (boxWidth < diameter || boxLength < diameter) {
+        return box;
+      }
+      box.isLegal = true;
+      for (var j = 0; j < row; j ++) {
+        for (var i = 0; i < column; i ++) {
+          box.key.push({
+            left: i * diameter,
+            top: j * diameter
+          });
+          box.count ++;
+        }
+      }
+      return box;
+    };
+    
+
+    var getTubesOfBox = {
+    	getTubesOfBox1: getTubesOfBox1
+    };
+
+    var getOneBox = function(n) {
+      var functionName = getTubesOfBox['getTubesOfBox' + n];
+      var userInput = getUserInput();
+      var boxWidth = userInput.boxWidth;
+      var boxLength = userInput.boxLength;
+      var diameterOfTapes = getDiametersOfTape();
+      var boxs = [];
+      var box = {};
+      for (var i = 0, len = diameterOfTapes.length; i < len; i++) {
+        box = functionName({
+          width: boxWidth,
+          length: boxLength
+        }, diameterOfTapes[i]);
+        if (box.isLegal) {
+          boxs.push(box);
+        }
+      }
+      return boxs;
+    };
+
+    var getBox = function(len, n) {
+    	var box = {};
+    	var boxs = getOneBox(n);
+    	for (var i = 0; i < boxs.length; i++) {
+	        if (boxs[i].tapeLength === len) {
+	          box = boxs[i];
+	          break;
+	        }
+	    }
+	    return box;
+    };
+    var rellyBox = function(len) {
+    	var boxs = [];
+    	for (var i = 1; i <=1; i++) {
+    		boxs.push(getBox(len, i));
+    	}
+    	boxs.sort(function(a, b) {
+    		return b.count - a.count;
+    	});
+    	return boxs[0];
+    };
+    var showShape = function(len) {
+      var box = rellyBox(len);
+      console.log(box)
+      var rate = box.tapeDiameter / 100;
+      var str = '';
+
+
+      var key = box.key;
+      for (var k =0; k < key.length; k++) {
+        str += '<div class="circle" data-top:"'+ key[k].top +'" data-left:"'+ key[k].left +'" style="left: ' + key[k].left / rate+ 'px;top:'+ key[k].top/rate+'px;"></div>';
+      }
+       
+      var rectangle = querySelector('.rectangle');
+      rectangle.style.width = box.length / rate + 'px';
+      rectangle.style.height = box.width / rate + 'px';
+      rectangle.innerHTML = str;
+    };
+    var createTr = function(data) {
+    	return str = '<tr>'+
+  					 	'<td>' + data.length +'</td>'+
+  					 	'<td>' + data.width +'</td>'+
+  					 	'<td>' + data.diameter +'</td>'+
+  					 	'<td>' + data.tubes +'</td>'+
+  					 	'<td>' + data.count +'</td>'+
+  					 	'<td>' + data.sum +'</td>'+
+  			         '</tr>';
+    }
+    var culc = document.getElementById('culc');
+    culc.addEventListener('click', function() {
+    	var diameterOfTapes = getOneBox(1);
+    	var counts = getTapesCountOfOneTube();
+    	var str = '';
+    	for (var i = 0, ilen = diameterOfTapes.length; i < ilen; i++) {
+    		var tape = diameterOfTapes[i];
+    		for (var j = 0, jlen = counts.length; j < jlen; j++) {
+    			var count = counts[j];
+    			str += createTr({
+    				diameter: (tape.tapeDiameter * 100).toFixed(2),
+    				length: tape.tapeLength,
+    				width: (count.width * 100).toFixed(2),
+    				tubes: tape.count,
+    				count: count.count,
+    				sum: tape.count * count.count
+    			});
+    		}
+    	}
+    	document.getElementById('zhuangxiang').innerHTML = str;
+    	document.getElementById('table').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
