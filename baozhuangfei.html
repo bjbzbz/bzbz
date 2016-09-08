@@ -148,7 +148,7 @@
 			return price;
 		};
 		var getPaoMianPrice = function(length, width) {
-			length = length.toFixed(1);
+			length = (+length).toFixed(1);
 			var price;
 			if (length < 1) {
 				alert('不支持小于1米的长度计算');
