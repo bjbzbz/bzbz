@@ -9,6 +9,7 @@
 		<option value="棉纸双面胶">棉纸双面胶</option>
 		<option value="泡棉胶带">泡棉胶带</option>
 		<option value="牛皮纸胶带">牛皮纸胶带</option>
+		<option value="布基胶带">布基胶带</option>
 	</select>
 	长度(m)： <input type="text" name="length" id="length" placeholder="胶带长度 单位(m)">
 	宽度(cm):  <input type="text" name="width" id="width" placeholder="胶带宽度 单位(cm)">
@@ -177,6 +178,53 @@
 			}
 			return price;
 		};
+		var getBuJiPrice = function(length, width) {
+			length = Math.round(length);
+			var price;
+			if (length < 9) {
+				alert('不支持小于9米的长度计算');
+				return false;
+			} else if (length < 10) {
+				price = 0.51;
+			} else if (length < 11) {
+				price = 0.46;
+			} else if (length < 12) {
+				price = 0.42;
+			} else if (length < 13) {
+				price = 0.39;
+			} else if (length < 14) {
+				price = 0.35;
+			} else if (length < 15) {
+				price = 0.33;
+			} else if (length < 16) {
+				price = 0.31;
+			} else if (length < 19) {
+				price = 0.27;
+			} else if (length < 22) {
+				price = 0.23;
+			} else if (length < 24) {
+				price = 0.21;
+			} else if (length < 27) {
+				price = 0.19;
+			} else if (length < 30) {
+				price = 0.17;
+			} else if (length < 35) {
+				price = 0.15;
+			} else if (length < 40) {
+				price = 0.13;
+			} else if (length < 45) {
+				price = 0.11;
+			} else if (length < 51) {
+				price = 0.1;
+			} else {
+				alert('不支持大于50米的长度计算');
+				return false;
+			}
+			if (width < 1) {
+				price += 0.015
+			}
+			return price;
+		};
 		var getPriceOfOneM = function() {
 			var userinput = getUserInput();
 			var fun;
@@ -188,6 +236,8 @@
 				fun = getNiuPiZhiPrice;
 			} else if (type === '泡棉胶带') {
 				fun = getPaoMianPrice;
+			} else if (type === '布基胶带') {
+				fun = getBuJiPrice;
 			}
 			var price = fun(userinput.length, userinput.width);
 			var juanprice = price * userinput.length * userinput.width / 100;
